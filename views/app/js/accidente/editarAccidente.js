@@ -1,11 +1,11 @@
-function editarAccidente() { 
+function editarAccidente() {
 
-    
+
     var connect, form, response, result, numBoleta, autJudicial, codInspector, fecAccidente, horAccidente,
-  diaAccidente, provincia, canton, distrito, rutAccidente, km, senas, numImplicados, accCon, velocidad, obsAccidente, idAccidente, idUbicacion; 
-    
+  diaAccidente, provincia, canton, distrito, rutAccidente, km, senas, numImplicados, accCon, velocidad, obsAccidente, idAccidente, idUbicacion;
+var hola;
      var id1, id2, id3, id4, id5, id6, id7, id8, id9, id10, id11, id12, id13, id14, id15, id16;
-    
+
    id1= __('id1').value;
      id2= __('id2').value;
      id3= __('id3').value;
@@ -22,7 +22,7 @@ function editarAccidente() {
      id14= __('id14').value;
      id15= __('id15').value;
      id16= __('id16').value;
-    
+
  idAccidente= __('idAccidente');
   idUbicacion= __('idUbicacion');
   numBoleta= __('numBoleta');
@@ -40,9 +40,9 @@ function editarAccidente() {
   numImplicados= __('numImplicados');
   accCon= __('accCon');
    velocidad=    __('velocidad');*/
- obsAccidente = __('obsAccidente'); 
-    
-      
+ obsAccidente = __('obsAccidente');
+
+
         if(autJudicial.value == ""){
         alert("El campo autoridad judicial es requerido");
         autJudicial.focus();
@@ -65,7 +65,7 @@ function editarAccidente() {
          alert("El campo observaciones es requerido");
          obsAccidente.focus();
      }else{ //Si todos los campos estan llenos realiza el registro
-  
+
          form = 'numBoleta=' + numBoleta.value +
        '&autJudicial=' + autJudicial.value +
        '&codInspector=' + codInspector.value +
@@ -78,27 +78,27 @@ function editarAccidente() {
        '&obsAccidente=' +  obsAccidente.value  +
        '&idAccidente=' + idAccidente.value  +
        '&idUbicacion=' + idUbicacion.value +
-       '&id1=' + id1 + 
-       '&id2=' + id2 + 
-       '&id3=' + id3 + 
-       '&id4=' + id4 + 
-       '&id5=' + id5 + 
-       '&id6=' + id6 + 
-       '&id7=' + id7 + 
-       '&id8=' + id8 + 
-       '&id9=' + id9 + 
-       '&id10=' + id10 + 
-       '&id11=' + id11 + 
-       '&id12=' + id12 + 
-       '&id13=' + id13 + 
-       '&id14=' + id14 + 
-       '&id15=' + id15 + 
+       '&id1=' + id1 +
+       '&id2=' + id2 +
+       '&id3=' + id3 +
+       '&id4=' + id4 +
+       '&id5=' + id5 +
+       '&id6=' + id6 +
+       '&id7=' + id7 +
+       '&id8=' + id8 +
+       '&id9=' + id9 +
+       '&id10=' + id10 +
+       '&id11=' + id11 +
+       '&id12=' + id12 +
+       '&id13=' + id13 +
+       '&id14=' + id14 +
+       '&id15=' + id15 +
        '&id16=' + id16;
-     
 
-  connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); 
+
+  connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
   connect.onreadystatechange = function() {
-     
+
     if(connect.readyState == 4 && connect.status == 200) { //Revisa el estado de la conexión con ajax
       if(connect.responseText == 1) {
 
@@ -107,11 +107,11 @@ function editarAccidente() {
       result += '<h4>Registro realizado !</h4>';
       result += '<p><strong>Se guardaron los cambios.</strong></p>';
       result += '</div>';
-        
+
         __('_AJAX_ACCIDENTE_').innerHTML = result;
-        
+
         window.location.assign("?view=verAccidente");
-        
+
       } else {
         __('_AJAX_ACCIDENTE_').innerHTML = connect.responseText; //Se muestran los errores
       }
@@ -129,9 +129,9 @@ function editarAccidente() {
   connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); //Mantiene los datos encriptados.
   connect.send(form);//Envia los datos a ajax
 
-         
-    // } //FIN DEL ELSE 
-    
+
+    // } //FIN DEL ELSE
+
 }
 
 function validarFRM1 () {
@@ -149,5 +149,5 @@ window.onload= function () {
 
    btnEditar.addEventListener("click", validarFRM1);
     btnGuardar.addEventListener("click", editarAccidente);
-   
+
   };
