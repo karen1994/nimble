@@ -1,0 +1,61 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("select * from vehiculooficial"); /*Consulta los datos del alcoholimetro*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+  <div class="table-responsive">
+<table id="example" class="display table-bordered alert-warning"cellspacing="0" width="100"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Numero de Placa</th>
+	<th>Tipo de Vehiculo</th>
+	<th>Marca del Vehiculo</th>
+	<th>Kilometraje Inicial</th>
+	<th>Estado del Vehiculo</th>
+    <th>Observaciones</th>
+    <th>Disponibilidad</th>
+    <th></th>
+    <th><a href="?view=VerSalidaVehiculo" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver Salidas</a></th>
+  <th><a href="?view=VerEntradaVehiculo" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver Entradas</a> <!--Incluye el documento editar.php--></th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+    <?php  $estado;
+      if($r["estadoVehiculoO"]== 1){
+      $estado= "Activo";}else{
+      $estado="Inactivo";}
+      ?>
+	<td><?php echo $r["numPlacaVehiculoOfic"]; ?></td>
+	<td><?php echo $r["tipoVehiculoOfic"]; ?></td>
+    <td><?php echo $r["marcaVehiculoOfic"]; ?></td>
+     <td><?php echo $r["kmInicial"]; ?></td>
+	<td><?php echo $estado; ?></td>
+	<td><?php echo $r["observ"]; ?></td>
+	<td><?php echo $r["estadoVehO"]; ?></td>
+
+	<td style="width:155px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=EditarVehiculo&&id=<?php echo $r['idVehiculoOficial'];?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar Vehiculo</a> <!--Incluye el documento editar.php-->
+		</td>
+
+       <td>
+            <a href="?view=SalidaVehiculoOfic&&id=<?php echo $r['numPlacaVehiculoOfic'];?>" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> Agregar Salida</a>
+       </td>
+
+        <td>
+            <a href="?view=EntradaVehiculoOfic&&id=<?php echo $r['numPlacaVehiculoOfic'];?>" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> Agregar Entrada</a>
+
+	</td> <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Editar Salidas de Vehiculos</title>
+    <script type="text/javascript" language="javascript" src="ajax.js"></script>
+          <!--funcion de la tabla-->
+					<script src="views/bootstrap/jquery/jquery.min.js"></script>
+		      <script src="views/bootstrap/js/bootstrap.min.js"></script>
+
+		     <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+		     <link rel="stylesheet" href="views/app/css/index.css">
+
+		   <link rel="stylesheet" type="text/css" href="views/dataTable/media/css/jquery.dataTables.css" />
+		   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css" />
+		   <script type="text/javascript" language="javascript" src="views/app/js/dataTable.js"></script>
+		   <script type="text/javascript" language="javascript" src="views/dataTable/media/js/jquery.js"></script>
+		   <script type="text/javascript" language="javascript" src="views/dataTable/media/js/jquery.dataTables.js"></script>
+		   <script type="text/javascript" language="javascript" src="//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
+
+    <!--**-->
+	</head>
+	<body>
+	<!-- Incluye el documento menu.html-->
+<?php include(HTML_DIR . '/menu/menu.html'); ?>
+<div class="container">
+<div class="row">
+<div class="col-md-14">
+  <br>
+		<h2>Salida de Vehiculos Oficiales</h2>
+  <br>
+<!-- Botón para garegar accidente-->
+  <a href="?view=VerVehiculoOfic" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a> <!-- Botón muestra el formulario para agregar -->
+<br><br>
+
+
+
+
+<!-- Incluye el documento tablaAccidnete.html para ver la tabla -->
+<?php include(HTML_DIR . '/ControlVehiculoOfic/SalidasVehiculos/TablaSalidaVehiculo.html'); ?>
+</div>
+</div>
+</div>
+</body>
+
+
+</html>

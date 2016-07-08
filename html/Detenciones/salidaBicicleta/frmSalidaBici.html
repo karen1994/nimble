@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Salida bicicleta</title>
+        <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="views/app/css/index.css"> <!-- CSS del MENU -->
+    </head>
+    <body>
+ <!--        INCLUYE EL MENU *************************-->
+ <?php include(HTML_DIR . '/menu/menu.html'); ?>
+
+ <!-- ************************************************ -->
+        <!--Inicia el div container-->
+      <div class="container">
+        <br>
+        <!-- style="display: none;"  -->
+         <form action="" class="form-horizontal">
+
+             <div id="secSalidaBici">
+               <form action="" id="" class="form-horizontal">
+            <?php include(HTML_DIR . '/Detenciones/salidaBicicleta/secSalidaBici.php'); ?>
+               </form>
+             </div>
+
+             <div id="secPersonaSalidaBici" style="display:none;">
+               <form action="" id="" class="form-horizontal">
+            <?php include(HTML_DIR . '/Detenciones/salidaBicicleta/secPersonaSalidaBici.php'); ?>
+               </form>
+             </div>
+
+         </form>
+       </div>
+
+
+
+
+ <!-- ENLACES ************************************************** -->
+<script src="views/bootstrap/jquery/jquery.min.js"></script>
+<script src="views/bootstrap/js/bootstrap.min.js"></script>
+<script src="views/app/js/generales.js"></script>
+<script src="views/app/js/salidaBici.js"></script>
+    </body>
+</html>

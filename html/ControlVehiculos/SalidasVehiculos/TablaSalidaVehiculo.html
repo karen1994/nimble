@@ -1,0 +1,51 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("select * from entradasalidavehiculooficial INNER JOIN vehiculoofici"); /*Consulta los datos del alcoholimetro*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+
+
+  <div class="table-responsive">
+<table id="example" class="display" cellspacing="0" width="100"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Fecha de Salida</th>
+	<th>Hora de Salida</th>
+	<th>Oficial que entrega salida</th>
+	<th>Oficial que recibe salida</th>
+    <th>Observaciones de Salida</th>
+    <th>Numero de placa</th>
+    <th>Disponibilidad</th>
+
+  <th></th>
+
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+
+	<td><?php echo $r["fecSalidaVehi"]; ?></td>
+	<td><?php echo $r["horaSalidaVehi"]; ?></td>
+	<td><?php echo $r["codOficEntregaVehiSalida"]; ?></td>
+	<td><?php echo $r["codOficRecibeVehiSalida"]; ?></td>
+    <td><?php echo $r["observSalVehi"]; ?></td>
+    <td><?php echo $r["numPlacaVehiculoOfic"]; ?></td>
+    <td><?php echo $r["estadoVehO"]; ?></td>
+
+	<td style="width:170px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=EditarSalidaVehiculo&&id=<?php echo $r['numPlacaVehiculoOfic'];?>"  class="btn btn-sm btn-warning">Editar</a> <!--Incluye el documento editar.php-->
+
+	</td> <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

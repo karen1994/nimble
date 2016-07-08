@@ -1,0 +1,57 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("select * from alcoholimetro"); /*Consulta los datos del alcoholimetro*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+  <div class="table-responsive">
+<table id="example" class="display table-bordered alert-warning"cellspacing="0" width="100"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Numero de Patrimonio</th>
+	<th>Ultima Prueba</th>
+	<th>Estado del Alcoholimetro</th>
+	<th>Observaciones</th>
+	<th>Disponibilidad</th>
+  <th></th>
+  <th><a href="?view=VerSalidaAlcohol" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver salidas</a></th>
+  <th><a href="?view=VerEntradaAlcohol" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver entradas</a></th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+    <?php  $estado;
+      if($r["estadoAlcoholimetro"]== 1){
+      $estado= "Activo";}else{
+      $estado="Inactivo";}
+      ?>
+	<td><?php echo $r["idnumPatrimonio"]; ?></td>
+	<td><?php echo $r["numUltimaPrueba"]; ?></td>
+	<td><?php echo $estado; ?></td>
+	<td><?php echo $r["observAlcoholimetro"]; ?></td>
+	<td><?php echo $r["estadoServicioAlcoh"]; ?></td>
+
+	<td style="width:155px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=EditarAlcohol&&id=<?php echo $r['idAlcoholimetro'];?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar alcoholimetro</a> <!--Incluye el documento editar.php-->
+	</td>
+  <!-- Botón agrega salida -->
+  <td>
+      <a href="?view=SalidaAlcoholimetro&&id=<?php echo $r['idnumPatrimonio'];?>" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> Agregar salida</a>
+  </td>
+  <!-- Botón agregar entrada -->
+  <td>
+    <a href="?view=EntradaAlcoholimetro&&id=<?php echo $r['idnumPatrimonio'];?>" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> Agregar entrada</a>
+	</td>
+   <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

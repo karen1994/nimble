@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                                   <title>Policía de Tránsito</title>
+  <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="views/app/css/index.css">
+ <script src="views/bootstrap/jquery/jquery.min.js"></script> 
+
+ <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script> 
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+          
+			cargar_provincias();
+          
+			$("#provincia").change(function(){dependencia_cantones(); $("#distrito").attr("disabled",true);});
+			$("#canton").change(function(){dependencia_distritos();});
+			$("#canton").attr("disabled",true);
+			$("#distrito").attr("disabled",true);
+		});
+
+		function cargar_provincias()
+		{
+           
+			$.get("html/accidente/scripts/scripts/cargar-provincias.php", function(resultado){
+                
+				if(resultado == false)
+				{
+					alert("Error");
+				}
+				else
+				{
+					$('#provincia').append(resultado);
+				}
+			});	
+		}
+		function dependencia_cantones()
+		{
+			var code = $("#provincia").val();
+			$.get("html/accidente/scripts/scripts/dependencia-cantones.php", { code: code },
+				function(resultado)
+				{
+					if(resultado == false)
+					{
+						alert("Error");
+					}
+					else
+					{
+						$("#canton").attr("disabled",false);
+						document.getElementById("canton").options.length=1;
+						$('#canton').append(resultado);			
+					}
+				}
+
+			);
+		}
+
+		function dependencia_distritos()
+		{
+			var code = $("#canton").val();
+			$.get("html/accidente/scripts/scripts/dependencia-distritos.php?", { code: code }, function(resultado){
+				if(resultado == false)
+				{
+					alert("Error");
+				}
+				else
+				{
+					$("#distrito").attr("disabled",false);
+					document.getElementById("distrito").options.length=1;
+					$('#distrito').append(resultado);			
+				}
+			});	
+			
+		}
+	</script>
+
+
+</head>
+
+<body>
+
+<?php include(HTML_DIR . '/menu/menu.html'); ?>
+
+  <!-- Formuario accidente-->
+<div class="container">
+  <form name="form1" action="" class="form-horizontal">
+   
+    <div id="secAccidente" >
+        
+        <?php 
+        include(HTML_DIR . '/accidente/secAccidente.html'); ?>
+    </div> 
+    
+    <div id="secAccidente_II" style="display:none;" >
+        
+        <?php include(HTML_DIR . '/accidente/secAccidente_II.html'); ?>
+    </div> 
+    
+    
+    
+    </form>
+
+</div> <!--Fin del div container-->
+
+
+
+
+<!--Sección del footer-->
+<footer>
+</footer>
+
+
+<!-- <script src="views/bootstrap/js/bootstrap.min.js"></script> -->
+<script src="views/app/js/generales.js"></script>
+ 
+ <script src="views/app/js/accidente/regAccidente.js"></script>
+
+
+
+</body>
+</html>

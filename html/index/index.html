@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Policía de Tránsito</title>
+  <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="views/app/css/index.css">
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle colapsed" data-toggle="collapse" data-target="#navegacion-fm">
+              <span class="sr-only">Desplegar / Ocultar Menu</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand">Policía de Tránsito</a>
+          <h4>Sistema Nimble</h4>
+        </div>
+<!--Inicia Menú -->
+<div class="collapse navbar-collapse" id="navegacion-fm">
+  <ul class="nav navbar-nav">
+
+  </ul>
+
+<form action="" class="navbar-form navbar-right" role="search">
+  <div class="form-group">
+  <label for="numero">Usuario</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="numero">Contraseña</label><br>
+    <input type="text" class="form-control" placeholder="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="password"  class="form-control" maxlength="15" placeholder="">
+
+  </div>
+&nbsp;&nbsp;&nbsp;<input type="submit" value="Iniciar sesión" />
+</form>
+
+</div>
+      </div>
+  </nav>
+</header>
+
+<!--Aqui va el jumbotro-->
+
+<!--Inicia Main container -->
+<section class="main container">
+  <!--Inica row-->
+  <div class="row">
+    <!-- Sección de imagen -->
+    <section class="posts col-md-6">
+
+      <a href="#" class="thumb pull-left">
+        <img src="views/app/images/logoT.jpeg" alt="" />
+      </a>
+
+    </section>
+
+  <!-- Sección del formuario -->
+      <section class=" posts col-md-6">
+<!--Inicia el div container-->
+      <div class="container col-md-12 ">
+        <br>
+        <div class="row">
+           <div class="col-md-4 col-md-offset-4">
+            <div id="_AJAX_REG_"></div>
+           </div>
+     </div>
+     
+     <!--Inicio del form -->
+      <form  class="form-horizontal" onkeypress="return runScriptReg(event)">
+        
+        <div class="form-group">
+           <div class="col-md-4 col-md-offset-4">
+     <h1> Registrarte</h1>
+           </div>
+     </div>
+     
+     
+        
+        <div class="form-group">
+          <label for="codDelegacion" class="control-label col-md-4">Código delegación</label>
+          <div class="col-md-8">
+          <input class="form-control" id="codDelegacion" type="text" maxlength="5" placeholder="" required>
+          </div>
+        </div>
+
+    <div class="form-group">
+        <label for="option" class="control-label col-md-4">Tipo de usuario</label>
+        <div class="col-md-8">
+        <select class="form-control" name="" id="tipoUsuario">
+          <option value="0">Administrador</option>
+          <option value="1">Sub administrador</option>
+          <option value="2">Oficial de guardia</option>
+        </select>
+        </div>
+   </div>
+
+   <div class="form-group ">
+        <label for="correoU" class="control-label col-md-4">Correo electrónico</label>
+        <div class="col-md-8">
+        <input class="form-control" id="correoU" type="email" placeholder="" required>
+        </div>
+   </div>
+
+   <div class="form-group">
+        <label for="contraseña1" class="control-label col-md-4">Contraseña</label>
+        <div class="col-md-8">
+        <input class="form-control" id="pass1" type="password" maxlength="15" placeholder="" required>
+        </div>
+   </div>
+
+   <div class="form-group">
+        <label for="contraseña2" class="control-label col-md-4">Introduce de nuevo la contraseña</label>
+        <div class="col-md-8">
+        <input class="form-control" id="pass2" type="password" maxlength="15" placeholder="" required>
+        </div>
+  </div>
+
+ <div class="form-group">
+      <div class="col-md-4 col-md-offset-4">
+      <button class="btn btn-primary"  onclick="registro()">Registar</button>
+      </div>
+ </div>
+      </form>
+
+    </div>
+    <!--Fin el div container-->
+  </section>
+
+
+  </div>
+  <!--Fin row-->
+</section>
+<!--Fin Main container -->
+
+
+<!--Sección del footer-->
+<footer>
+</footer>
+ <script src="views/app/js/registro.js"></script>
+<script src="views/bootstrap/jquery/jquery.min.js"></script>
+<script src="views/bootstrap/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

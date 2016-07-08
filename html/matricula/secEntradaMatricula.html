@@ -1,0 +1,108 @@
+<form name="form1" action="" class="form-horizontal">
+
+  <div class="form-group">
+        <div class="col-md-4 col-md-offset-10">
+  <a id="regresar2" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+        </div>
+  </div>
+
+  <div class="form-group">
+        <div class="col-md-8 col-md-offset-4">
+  <h1>Detención de matriculas</h1>
+        </div>
+  </div>
+
+<div class="form-group">
+   <div class="col-md-4 col-md-offset-4">
+<h3> Datos de entrada</h3>
+   </div>
+</div>
+
+<div class="form-group" id="boleta">
+  <label for="numBoletaMatricula" class="control-label col-md-4">Número de boleta</label>
+    <div class="col-md-5">
+  <input class="form-control" onfocus="return datosCorrectos()" id="numBoletaMatricula" type="text" maxlength="12" placeholder="" value="">
+    </div>
+</div>
+
+<div class="form-group" id="fecBoletaMatricula">
+<label for="fecBoleta" class="control-label col-md-4">Fecha de boleta</label>
+  <div class="col-md-5">
+<input class="form-control" onfocus="return datosCorrectos()" id="fecBoleta" type="date"   value="">
+  </div>
+</div>
+
+<div class="form-group" id="placa">
+ <label for="numPlaca" class="control-label col-md-4">Número de placa</label>
+   <div class="col-md-5">
+ <input class="form-control" onfocus="return datosCorrectos()" id="numPlaca" type="text" maxlength="12" value="">
+   </div>
+</div>
+
+<div class="form-group" id="marca">
+ <label for="marcVehiculo" class="control-label col-md-4">Marca del vehículo</label>
+   <div class="col-md-5">
+ <input class="form-control" onfocus="return datosCorrectos()" id="marcVehiculo" type="text"  maxlength="25" value="">
+   </div>
+</div>
+
+<div class="form-group" id="fecDetencion">
+  <label for="fecDetMatricula" class="control-label col-md-4">Fecha de detención</label>
+    <div class="col-md-5">
+  <input class="form-control" onfocus="return datosCorrectos()" id="fecDetMatricula" type="date"  placeholder="" value="">
+    </div>
+</div>
+
+<div class="form-group" id="horDetencion">
+<label for="horDetMatricula" class="control-label col-md-4">Hora de detención</label>
+ <div class="col-md-5">
+<input class="form-control" onfocus="return datosCorrectos()" id="horDetMatricula" type="time"  placeholder="" value="">
+ </div>
+</div>
+
+<div class="form-group" id="tomo">
+<label for="tomEntMatricula" class="control-label col-md-4">Número de tomo</label>
+ <div class="col-md-5">
+<input class="form-control" onfocus="return datosCorrectos()" id="tomEntMatricula" type="text"  maxlength="4" value="">
+ </div>
+</div>
+
+<div class="form-group" id="folio">
+<label for="folEntMatricula" class="control-label col-md-4">Número de folio</label>
+ <div class="col-md-5">
+<input class="form-control" onfocus="return datosCorrectos()" id="folEntMatricula" type="text"  maxlength="4" value="">
+ </div>
+</div>
+
+<div class="form-group" id="oDetiene">
+<label for="ofiDetMatricula" class="control-label col-md-4">Código del oficial que detiene la matricula</label>
+  <div class="col-md-5">
+<input class="form-control" onfocus="return datosCorrectos()" id="ofiDetMatricula" type="text" maxlength="5" placeholder="" value="">
+  </div>
+</div>
+
+<div class="form-group" id="oRecibe">
+<label for="ofiRecMatricula" class="control-label col-md-4">Código del oficial que recibe la matricula</label>
+ <div class="col-md-5">
+<input class="form-control" onfocus="return datosCorrectos()" id="ofiRecMatricula" type="text" maxlength="5" placeholder="" value="">
+ </div>
+</div>
+
+<div class="form-group" id="observacion">
+<label for="obsMatricula" class="control-label col-md-4">Observaciones</label>
+<div class="col-md-5">
+<textarea id="obsMatricula" onfocus="return datosCorrectos()" rows="8" cols="40" placeholder="Escribe las observaciones de la detención de la matricula" maxlength="100"></textarea>
+ </div>
+</div>
+
+<div class="form-group">
+   <div class="col-md-4 col-md-offset-4">
+   <a  id="btnTerminar2" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Terminar</a>
+   </div>
+</div>
+
+
+<br>
+<br>
+
+</form>

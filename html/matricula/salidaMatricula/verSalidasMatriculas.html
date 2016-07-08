@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Ver matriculas detenidas</title>
+    <script type="text/javascript" language="javascript" src="ajax.js"></script>
+    <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="views/app/css/index.css">
+	</head>
+	<body>
+	<!-- Incluye el documento menu.html-->
+<?php include(HTML_DIR . '/menu/menu.html'); ?>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+  <br>
+		<h2>Salidas de detención de matriculas</h2>
+  <br>
+
+<a href="?view=verMatricula" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a> <!-- Botón muestra el formulario para agregar -->
+<br><br>
+
+<!-- Incluye el documento tablaAccidnete.html para ver la tabla -->
+<?php include(HTML_DIR . '/matricula/salidaMatricula/tablaSalidasMatriculas.html'); ?>
+</div>
+</div>
+</div>
+
+<script src="views/bootstrap/jquery/jquery.min.js"></script>
+<script src="views/bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>

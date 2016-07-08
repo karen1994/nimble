@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Registro de Oficiales</title>
+  <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="views/app/css/index.css">
+</head>
+<body>
+
+<?php include(HTML_DIR . '/menu/menu.html'); ?>
+
+ <!-- ************************************************ -->
+        <!--Inicia el div container-->
+      <div class="container">
+        <div class="form-group">
+          <br>
+   <div class="col-md-4 col-md-offset-10">
+   <a href="?view=VerDatosOficiales" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+   </div>
+   </div>
+
+        <br>
+        <!-- style="display: none;"  -->
+         <form action="" class="form-horizontal" method="post">
+
+             <div id="DatosPersonales">
+
+            <?php include(HTML_DIR . '/Oficiales/DatosPersonales/RegDatosOficial.html'); ?>
+
+             </div>
+
+             <div id="DatosProfesion" style="display:none;">
+
+            <?php include(HTML_DIR . '/Oficiales/DatosProfesion/RegProfesionOficial.html'); ?>
+
+             </div>
+
+             <div id="Permisos" style="display:none;">
+
+            <?php include(HTML_DIR . '/Oficiales/Permisos/RegPermisoOficial.html'); ?>
+
+             </div>
+
+         </form>
+       </div>
+
+
+
+
+ <!-- ENLACES ************************************************** -->
+ <script src="views/bootstrap/jquery/jquery.min.js"></script>
+ <script src="views/bootstrap/js/bootstrap.min.js"></script>
+ <script src="views/app/js/generales.js"></script>
+ <script src="views/app/js/Oficial.js"></script>
+
+ </body>
+ </html>

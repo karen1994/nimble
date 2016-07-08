@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Placa</title>
+  <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="views/app/css/index.css">
+</head>
+<body>
+
+<?php include(HTML_DIR . '/menu/menu.html'); ?>
+<br>
+<div class="col-md-5 col-md-offset-3 " style="border-style: groove;">
+
+<?php
+if(isset($_SESSION['app_id'])){
+   $tipo= $users[$_SESSION['app_id']]['tipoUsuario'];
+    $usuario= $users[$_SESSION['app_id']]['id'];
+    $Oficial= $oficial[$usuario]['nombre'];
+  if($tipo == 0){
+    $puesto= "Administrador";
+  }
+  if($tipo == 1){
+    $puesto= "Sub-Administrador";
+  }
+  if($tipo == 2){
+    $puesto= "Oficial de Guardia";
+  }
+echo "<p><strong>Incio de Sesión : $puesto  |  Oficial: $Oficial  |  Código de Oficial : ". $usuario."</strong></p>";
+  }?>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#" class="">
+  <img src="views/app/images/logoT.jpeg" alt="" />
+</a>
+
+<script src="views/bootstrap/jquery/jquery.min.js"></script>
+<script src="views/bootstrap/js/bootstrap.min.js"></script>
+ <script src="views/app/js/generales.js"></script>
+</body>
+</html>

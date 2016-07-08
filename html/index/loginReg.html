@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Policía de Tránsito</title>
+  <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="views/app/css/index.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle colapsed" data-toggle="collapse" data-target="#navegacion-fm">
+              <span class="sr-only">Desplegar / Ocultar Menu</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand">Policía de Tránsito</a>
+          <h4>Sistema Nimble</h4>
+        </div>
+<!--Inicia Menú -->
+<div class="collapse navbar-collapse" id="navegacion-fm">
+  <ul class="nav navbar-nav">
+
+  </ul>
+
+<form action="" onkeypress="runScriptLogin(event)" class="navbar-form navbar-right" role="search">
+
+  <div class="form-group">
+  <label for="user_login">Usuario</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;
+    <label for="pass_login">Contraseña</label><br>
+    <input type="text" id="user_login" class="form-control" placeholder="Código de Oficial">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="password" id="pass_login"  class="form-control" maxlength="15" placeholder="Contraseña">
+&nbsp;&nbsp;&nbsp;<input type="button" onclick="goLogin()"  class="btn btn-primary" value="Iniciar sesión" />
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a data-toggle="modal" href="#myModal" >¿Has olvidado la contraseña?</a>
+  </div>
+
+</form>  <!-- FIN DEL FORM LOGIN-->
+
+</div>
+      </div>
+  </nav>
+</header>
+
+
+
+    <section class="main container">
+    <div class="row">
+
+        <section class="posts col-md-6">
+
+      <a href="#" class="thumb pull-left">
+        <img src="views/app/images/logoT.jpeg" alt="" />
+      </a>
+
+    </section>
+
+
+     <section class=" posts col-md-6">
+
+          <div class="container col-md-12 ">
+        <br>
+
+     <!-- FORM -->
+
+<form id="frmRegUser"class="form-horizontal"  onkeypress="return runScriptReg(event)">
+               <div class="form-group">
+          <label  class="control-label col-md-4"></label>
+          <div class="col-md-8">
+           <div id="_AJAX_LOGIN_"></div>
+          </div>
+        </div>
+             <div class="form-group" >
+                <div class="col-md-4 col-md-offset-4">
+
+                 <h1> Registrate</h1>
+                 </div>
+                   </div>
+     <!-- Div de los mensajes-->
+     <div class="form-group">
+          <label  class="control-label col-md-4"></label>
+          <div class="col-md-8">
+           <div id="_AJAX_REG_"></div>
+          </div>
+        </div>
+     <!-- Fin Div mensajes -->
+
+         <div class="form-group">
+          <label for="codOficial" class="control-label col-md-4">Código de oficial</label>
+          <div class="col-md-8">
+          <input class="form-control" id="codOficial" type="text" maxlength="5" placeholder="">
+          </div>
+        </div>
+   <div class="form-group">
+          <label for="codDelegacion" class="control-label col-md-4">Código delegación</label>
+          <div class="col-md-8">
+          <input class="form-control" id="codDelegacion" type="text" maxlength="2" placeholder="">
+          </div>
+        </div>
+<div class="form-group">
+        <label for="option" class="control-label col-md-4">Tipo de usuario</label>
+        <div class="col-md-8">
+        <select class="form-control" name="" id="tipoUsuario">
+          <option value="0">Administrador</option>
+          <option value="1">Sub administrador</option>
+          <option value="2">Oficial de guardia</option>
+        </select>
+        </div>
+   </div>
+
+    <div class="form-group">
+        <label for="contraseña1" class="control-label col-md-4">Correo Electronico</label>
+        <div class="col-md-8">
+        <input class="form-control" id="email" type="mail"  placeholder="">
+        </div>
+   </div>
+
+        <div class="form-group">
+        <label for="contraseña1" class="control-label col-md-4">Contraseña</label>
+        <div class="col-md-8">
+        <input class="form-control" id="pass1" type="password" maxlength="15" placeholder="">
+        </div>
+   </div>
+
+   <div class="form-group">
+        <label for="contraseña2" class="control-label col-md-4">Introduce de nuevo la contraseña</label>
+        <div class="col-md-8">
+        <input class="form-control" id="pass2" type="password" maxlength="15" placeholder="">
+        </div>
+  </div>
+
+  <!-- Inico de modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog"> <!-- Inico de modal-dialog -->
+    <div class="modal-content"><!-- Inico de modal-content -->
+      <div class="modal-header"> <!-- Inicio de modal-header-->
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">¿Has olvidado la contraseña?</h4>
+      </div> <!-- Fin de modal-header-->
+      <div class="modal-body"> <!-- Inico de modal-body -->
+        <!-- Formulario para recuperar la contraseña -->
+  <form name="form" method="post" action="" class="form-horizontal">
+
+    <div class="form-group">
+          <div class="col-md-8 col-md-offset-2">
+    <h1> Recuperar contraseña </h1>
+          </div>
+    </div>
+  <br>
+
+   <div class="form-group">
+     <label for="correo" class="control-label col-md-5">Correo electrónico</label>
+        <div class="col-md-5">
+    <input class="form-control" id="correo" type="text" name="correo" maxlength="50" placeholder="" value="">
+        </div>
+   </div>
+
+
+    <div class="form-group">
+        <div class="col-md-5 col-md-offset-5">
+          <a href="?view=recuperarPassword&&id=<?php echo $correo ?>" id="btnAceptar" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Aceptar</a>
+        </div>
+    </div>
+
+  </form>
+
+      </div> <!-- Fin de modal-body-->
+
+    </div><!-- Fin del modal-content -->
+  </div><!-- Fin del modal-dialog -->
+</div><!-- Fin del modal -->
+
+
+           <div class="form-group">
+      <div class="col-md-4 col-md-offset-4">
+      <button   type="button"  id="btnRegUsuario"  onclick="registro()" class="btn btn-primary" >Registar</button>
+      </div>
+ </div>
+
+        </form>
+        </div>
+        </section>
+       </div>  <!-- Fin ROW -->
+    </section>
+
+</body>
+
+<script src="views/app/js/generales.js"></script>
+ <script src="views/app/js/registro2.js"></script> <!-- Java Script del Registro del Usuario -->
+ <script src="views/app/js/login.js"></script> <!-- Java Script del Login -->
+<script src="views/bootstrap/jquery/jquery.min.js"></script>
+<script src="views/bootstrap/js/bootstrap.min.js"></script>
+
+</html>

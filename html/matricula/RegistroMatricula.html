@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Agregar detención de matriculas</title>
+  <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="views/app/css/index.css">
+</head>
+<body>
+
+<?php include(HTML_DIR . '/menu/menu.html'); ?>
+
+<!-- Formulario matricula-->
+<div class="container">
+<br>
+
+<!-- Incluye la sección de la persona-->
+<div id="secPersona">
+  <?php include(HTML_DIR . '/matricula/secPersonaMatricula.html'); ?>
+</div>
+
+<!-- Incluye la sección de la entrada de la matricula-->
+<div id="secEntrada" style="display:none;">
+<?php include(HTML_DIR . '/matricula/secEntradaMatricula.html'); ?>
+</div>
+
+<!-- Incluye la sección del motivo-->
+<div id="secMotivo" style="display:none;">
+  <?php include(HTML_DIR . '/matricula/secMotivoMatricula.html'); ?>
+</div>
+
+ </div>
+
+
+
+ <script src="views/bootstrap/jquery/jquery.min.js"></script>
+ <script src="views/bootstrap/js/bootstrap.min.js"></script>
+  <script src="views/app/js/generales.js"></script>
+  <script src="views/app/js/regMatricula.js"></script>
+
+
+ </body>
+ </html>

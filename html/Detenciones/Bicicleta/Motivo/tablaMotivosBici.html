@@ -1,0 +1,32 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("
+ SELECT * FROM detenciones  INNER JOIN Motivo ON detenciones.idMotivo = Motivo.idMotivo INNER JOIN bicicleta ON detenciones.idTipoVehiculo = bicicleta.idTipoVehiculo"); /*Consulta los datos del motivo*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+  <div class="table-responsive">
+<table class="table table-bordered table-hover"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Boleta</th>
+	<th>Artículo</th>
+	<th>Motivo</th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+	<td><?php echo $r["numBoletaDetencion"]; ?></td>
+	<td><?php echo $r["numArticulo"]; ?></td>
+	<td><?php echo $r["descripMotivo"]; ?></td>
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

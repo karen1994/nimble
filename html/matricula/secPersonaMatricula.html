@@ -1,0 +1,56 @@
+<form name="form1" action="" class="form-horizontal">
+
+  <div class="form-group">
+        <div class="col-md-12 col-md-offset-10">
+  <a href="?view=verMatricula" class="btn btn-success"><span class="glyphicon glyphicon-list"></span> Ir a matriculas</a>
+        </div>
+  </div>
+
+  <div class="form-group">
+        <div class="col-md-8 col-md-offset-4">
+  <h1>Detención de matriculas</h1>
+        </div>
+  </div>
+
+          <div class="form-group">
+                <div class="col-md-4 col-md-offset-4">
+          <h3> Datos del conductor</h3>
+                </div>
+          </div>
+
+ <div class="form-group" id="cedula">
+   <label for="cedPersona" class="control-label col-md-4">Identificación</label>
+      <div class="col-md-5">
+  <input class="form-control" onfocus="return datosCorrectos()" id="cedPersona" type="text" maxlength="20" placeholder="" value="" >
+      </div>
+ </div>
+
+  <div class="form-group" id="nombre">
+    <label for="nomPersona" class="control-label col-md-4">Nombre</label>
+      <div class="col-md-5">
+    <input class="form-control" onfocus="return datosCorrectos()" id="nomPersona" type="text" maxlength="50" value="">
+      </div>
+  </div>
+
+  <div class="form-group" id="apellido1">
+    <label for="ape1" class="control-label col-md-4">Primer apellido</label>
+        <div class="col-md-5">
+    <input class="form-control" onfocus="return datosCorrectos()" id="ape1" type="text" maxlength="50"  value="">
+        </div>
+  </div>
+
+
+<div class="form-group" id="apellido2">
+  <label for="ape2" class="control-label col-md-4">Segundo apellido</label>
+    <div class="col-md-5">
+  <input class="form-control" onfocus="return datosCorrectos()" id="ape2" type="text" maxlength="50" value="">
+    </div>
+</div>
+
+<div class="form-group">
+   <div class="col-md-4 col-md-offset-4">
+   <a  id="btnTerminar1" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Terminar</a>
+   </div>
+</div>
+
+</form>

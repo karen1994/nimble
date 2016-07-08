@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Registro de Vehiculos Oficiales</title>
+  <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="views/app/css/index.css">
+</head>
+<body>
+
+<?php include(HTML_DIR . '/menu/menu.html'); ?>
+
+<!-- Formulario matricula-->
+<div class="container">
+<br>
+    <form name="form1" action="" class="form-horizontal">
+
+      <div class="form-group">
+            <div class="col-md-4 col-md-offset-10">
+      <a href="?view=verVehiculoOfic" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+            </div>
+      </div>
+
+      <div class="form-group">
+            <div class="col-md-8 col-md-offset-4">
+      <h2>Registro de vehiculo Oficial</h2>
+            </div>
+      </div>
+
+
+     <div class="form-group" id="numeroPlaca">
+       <label for="numPlaca" class="control-label col-md-4">Número de Placa</label>
+          <div class="col-md-5">
+      <input class="form-control" id="numPlaca" onfocus="return validaciones()" type="text" maxlength="9" placeholder="" >
+          </div>
+     </div>
+
+      <div class="form-group" id="tipoVehiculo">
+        <label for="TipoVehiculo" class="control-label col-md-4">Tipo de Vehiculo</label>
+          <div class="col-md-5">
+        <input class="form-control" id="TipoVehiculo" onfocus="return validaciones()" type="text" placeholder="">
+          </div>
+      </div>
+
+      <div class="form-group"id="marcaVehiculo">
+        <label for="MarcaVehiculo" class="control-label col-md-4">Marca del Vehiculo</label>
+            <div class="col-md-5">
+        <input class="form-control" id="MarcaVehiculo" onfocus="return validaciones()" type="text"  placeholder="">
+            </div>
+      </div>
+
+
+ <div class="form-group "id="km">
+      <label for="KmInicial" class="control-label col-md-4">Kilometraje Inicial</label>
+        <div class="col-md-5">
+      <input class="form-control" id="KmInicial" onfocus="return validaciones()" type="text"  placeholder="">
+        </div>
+ </div>
+
+
+ <div class="form-group">
+    <label for="Observaciones" class="control-label col-md-4">Observaciones</label>
+    <div class="col-md-5">
+    <textarea id="Observaciones" rows="8" cols="40"  maxlength="100" placeholder="Escribe la observación del Vehiculo"></textarea>
+    </div>
+</div>
+
+
+
+  <div class="form-group">
+          <label  class="control-label col-md-4"></label>
+          <div class="col-md-8">
+           <div id="_AJAX_VehiculoOficial_" ></div>
+          </div>
+  </div>
+
+
+
+
+<div class="form-group">
+    <div class="col-md-8 col-md-offset-4">
+    <a id="btnRegVehiculo" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+     <a href="?view=VerVehiculoOfic" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancelar</a>
+    </div>
+</div>
+
+ </form>
+
+
+ </body>
+ <script src="views/bootstrap/jquery/jquery.min.js"></script>
+ <script src="views/bootstrap/js/bootstrap.min.js"></script>
+  <script src="views/app/js/generales.js"></script>
+  <script src="views/app/js/Vehiculo.js"></script>
+ </html>

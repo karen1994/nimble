@@ -1,0 +1,113 @@
+
+
+  <!-- Sección del formuario -->
+
+<!--Inicia el div container-->
+
+
+
+     <div class="form-group">
+           <div class="col-md-4 col-md-offset-4">
+     <h3>Registro de Oficiales</h3>
+           </div>
+     </div>
+     <br><br>
+
+ <div class="form-group">
+           <div class="col-md-4 col-md-offset-4">
+     <h4>Datos Personales</h4>
+           </div>
+     </div>
+     <br><br>
+
+        <div class="form-group" id="Nom">
+          <label for="Nombre" class="control-label col-md-4">Nombre:</label>
+          <div class="col-md-5">
+          <input class="form-control" id="Nombre" onfocus="return validaciones()" type="text" maxlength="50" placeholder="">
+          </div>
+        </div>
+
+   <div class="form-group" id="priApell">
+        <label for="PrimerApell" class="control-label col-md-4">Primer Apellido:</label>
+        <div class="col-md-5">
+        <input class="form-control" id="PrimerApell" onfocus="return validaciones()" type="text" maxlength="50" placeholder="">
+        </div>
+   </div>
+
+   <div class="form-group" id="SeguApell">
+        <label for="SegundoApell" class="control-label col-md-4">Segundo Apellido:</label>
+        <div class="col-md-5">
+        <input class="form-control" id="SegundoApell" onfocus="return validaciones()" type="text" maxlength="50" placeholder="">
+        </div>
+   </div>
+
+   <div class="form-group" id="Ced">
+        <label for="Cedula" class="control-label col-md-4">Cedula</label>
+        <div class="col-md-5">
+        <input class="form-control" id="Cedula" onfocus="return validaciones()" type="text" maxlength="9" placeholder="">
+        </div>
+  </div>
+
+     <div class="form-group" id="edad">
+        <label for="Edad" class="control-label col-md-4">Edad</label>
+        <div class="col-md-5">
+        <input class="form-control" id="Edad" onfocus="return validaciones()" type="text" maxlength="2" placeholder="">
+        </div>
+  </div>
+
+    <div class="form-group" id="Direcc">
+        <label for="Direccion" class="control-label col-md-4">Direccion:</label>
+        <div class="col-md-5">
+        <textarea id="Direccion" onfocus="return validaciones()" rows="8" cols="40" maxlength="100" placeholder=""></textarea>
+        </div>
+  </div>
+
+
+
+   <div class="form-group" id="Escol">
+        <label for="Escolaridad" class="control-label col-md-4">Escolaridad</label>
+        <div class="col-md-5">
+        <select class="form-control" name="" id="Escolaridad" onfocus="return validaciones()">
+          <option value="Seleccione">Seleccione</option>
+          <option value="Primaria Incompleta">Primaria Incompleta</option>
+          <option value="Primaria Completa">Primaria Completa</option>
+          <option value="Secundaria Incompleta">Secundaria Incompleta</option>
+          <option value="Secundaria completa">Secundaria completa</option>
+          <option value="Universidad Incompleta">Universidad Incompleta</option>
+          <option value="Universidad completa">Universidad completa</option>
+        </select>
+        </div>
+   </div>
+
+      <div class="form-group" id="NumTele">
+        <label for="NumeroTelefono" class="control-label col-md-4">Numero de telefono</label>
+        <div class="col-md-5">
+        <input class="form-control" id="NumeroTelefono" onfocus="return validaciones()" type="text" maxlength="10" placeholder="">
+        </div>
+  </div>
+
+        <div class="form-group" id="mail">
+        <label for="Correo" class="control-label col-md-4">Correo Electronico</label>
+        <div class="col-md-5">
+        <input class="form-control" id="Correo" onfocus="return validaciones()" type="text" maxlength="100" placeholder="">
+        </div>
+  </div>
+
+        <div class="form-group" id="nacimiento">
+        <label for="FechaNac" class="control-label col-md-4">Fecha de Nacimiento:</label>
+        <div class="col-md-5">
+        <input class="form-control" id="FechaNac" onfocus="return validaciones()" type="date" maxlength="15" placeholder="">
+        </div>
+  </div>
+
+  <hr>
+
+
+
+ <div class="form-group">
+    <div class="col-md-4 col-md-offset-4">
+      <a id="Terminar1" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Terminar</a>
+    </div>
+</div>
+
+    <!--Fin el div container-->

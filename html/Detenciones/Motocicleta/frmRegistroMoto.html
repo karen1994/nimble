@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Módulo Automovil</title>
+        <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="views/app/css/index.css"> <!-- CSS del MENU -->
+    </head>
+    <body>
+ <!--        INCLUYE EL MENU *************************-->
+ <?php include(HTML_DIR . '/menu/menu.html'); ?>
+
+ <!-- ************************************************ -->
+        <!--Inicia el div container-->
+      <div class="container">
+        <br>
+        <!-- style="display: none;"  -->
+         <form action="" class="form-horizontal">
+
+             <div id="secPersona">
+         <form action="" id="" class="form-horizontal">
+      <?php include(HTML_DIR . '/Detenciones/Motocicleta/secPersona.html'); ?>
+         </form>
+             </div>
+
+             <div id="secDetencion" style="display:none;">
+         <form action="" id="" class="form-horizontal">
+      <?php include(HTML_DIR . '/Detenciones/Motocicleta/secDetencion.html'); ?>
+         </form>
+             </div>
+
+             <div id="secMoto" style="display:none;">
+         <form action="" id="" class="form-horizontal">
+      <?php include(HTML_DIR . '/Detenciones/Motocicleta/secMoto.html'); ?>
+         </form>
+             </div>
+
+              <div id="secMotivo" style="display:none;">
+         <form action="" id="" class="form-horizontal">
+      <?php include(HTML_DIR . '/Detenciones/Motocicleta/secMotivo.html'); ?>
+         </form>
+              </div>
+
+         </form>
+      </div>
+
+
+
+
+ <!-- ENLACES ************************************************** -->
+<script src="views/bootstrap/jquery/jquery.min.js"></script>
+<script src="views/bootstrap/js/bootstrap.min.js"></script>
+<script src="views/app/js/generales.js"></script>
+<script src="views/app/js/regMoto.js"></script>
+    </body>
+</html>

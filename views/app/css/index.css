@@ -1,0 +1,38 @@
+/*HEADER*/
+.navbar{
+  margin-bottom: 0;
+  background: #FFD700;
+  color: #000;
+}
+
+.navbar .navbar-brand {
+  color:#000;
+  font-size: 30px;
+
+}
+
+/*-- POST --*/
+.main {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*-- media Querie*/
+@media screen and (max-width: 768){
+  .post .thumb{
+    width: 100px;
+    margin-bottom: 20px;
+
+  }
+}
+
+
+
+
+
+/*
+p{
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid:#999;
+}*/

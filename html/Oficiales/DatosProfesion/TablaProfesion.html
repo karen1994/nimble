@@ -1,0 +1,45 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("select * from oficiales");
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+  <div class="table-responsive">
+<table id="example" class="display table-bordered alert-warning"cellspacing="0" width="100"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+    <th>Ingreso a la Delegacion</th>
+    <th>Nombramiento Oficial</th>
+    <th>Nombre del Puesto</th>
+    <th>Codigo del Oficial</th>
+    <th>Estado</th>
+  <th></th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+  <?php  $estado;
+    if($r["estadoOficial"]== 1){
+    $estado= "Activo";}else{
+    $estado="Inactivo";}
+    ?>
+     <td><?php echo $r["fecIngresoDelegacion"]; ?></td>
+     <td><?php echo $r["nombraOficial"]; ?></td>
+       <td><?php echo $r["nomPuesto"]; ?></td>
+       <td><?php echo $r["codOficial"]; ?></td>
+       <td><?php echo $estado; ?></td>
+	<td style="width:160px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=EditarDatosProfesion&&id=<?php echo $r['idOficial'];?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar Datos de Profesion</a> <!--Incluye el documento editar.php-->
+	</td> <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

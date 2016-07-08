@@ -1,0 +1,72 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("select * from Placa"); /*Consulta los datos del accidente*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+  <div class="table-responsive">
+<table class="table table-bordered table-hover"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Boleta</th>
+	<th>Fecha de boleta</th>
+	<th>Placa</th>
+  <th>Tomo</th>
+  <th>Folio</th>
+	<th>Oficial que detiene</th>
+  <th>Oficial que recibe</th>
+  <th>Estado</th>
+  <th></th>
+  <th><a href="?view=verMatriculas" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver matriculas</a></th>
+  <th><a href="?view=verMotivosMatriculas" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver motivos</a></th>
+  <th><a href="?view=verPersonasMatricula" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver conductores</a></th>
+  <th><a href="?view=verSalidasMatriculas" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver salidas</a></th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+  <?php  $estado;
+    if($r["estadoPlaca"]== 1){
+    $estadoPlaca= "Activo";}else{
+    $estadoPlaca="Inactivo";}
+    ?>
+	<td><?php echo $r["numBoletaPlaca"]; ?></td>
+	<td><?php echo $r["fecBoletaPlaca"]; ?></td>
+	<td><?php echo $r["numPlaca"]; ?></td>
+  <td><?php echo $r["tomEntMatricula"]; ?></td>
+  <td><?php echo $r["folEntMatricula"]; ?></td>
+  <td><?php echo $r["codOficialDetienPlaca"]; ?></td>
+  <td><?php echo $r["codOficialRecPlaca"]; ?></td>
+  <td><?php echo $estadoPlaca; ?></td>
+	<td style="width:150px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=EditarDetencionMatricula&&id=<?php echo $r['idNumPlaca'];?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar detención</a>
+	</td>
+  <!-- Botón ver placa -->
+<td>
+  <a href="?view=EditarPlaca&&id=<?php echo $r['idNumPlaca'];?>"  class="btn btn-sm btn-success"><span class="glyphicon glyphicon-tags"></span> Ver matricula</a>
+</td>
+  <!-- Botón ver motivo -->
+<td>
+  <a href="?view=EditarMoMatricula&&id=<?php echo $r['idMotivo'];?>"  class="btn btn-sm btn-success"><span class="glyphicon glyphicon-book"></span> Ver motivo</a>
+</td>
+  	<!-- Botón ver persona -->
+  <td>
+    <a href="?view=EditarPeMatricula&&id=<?php echo $r['idPersona'];?>"  class="btn btn-sm btn-success"><span class="glyphicon glyphicon-user"></span> Ver conductor</a>
+  </td>
+  	<!-- Botón agregar salida-->
+  <td>
+    <a href="?view=SalidaMatricula&&id=<?php echo $r['idNumPlaca'];?>"  class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> Agregar salida</a>
+  </td>
+   <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

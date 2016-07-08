@@ -1,0 +1,105 @@
+<br>
+     
+
+        <div class="form-group">
+              <div class="col-md-4 col-md-offset-4">
+        <h1> Registrar accidente </h1>
+              </div>
+        </div>
+          <hr>
+                <div class="form-group">
+                      <div class="col-md-4 col-md-offset-4">
+                <h3> Accidente </h3>
+               
+                      </div>
+                </div>
+  
+
+       <div class="form-group" id="boleta">
+         <label for="numBoleta" class="control-label col-md-4">Número de boleta </label>
+            <div class="col-md-5">
+        <input class="form-control" id="numBoleta" value="" onfocus="return datosCorrectos()" type="number" maxlength="15" placeholder="" required="">
+            </div>
+       </div>
+
+
+   <div class="form-group" id="fecha">
+        <label for="fecAccidente" class="control-label col-md-4">Fecha del accidente</label>
+          <div class="col-md-5">
+        <input class="form-control" id="fecAccidente" onfocus="return datosCorrectos()" type="date"  >
+          </div>
+   </div>
+
+   <div class="form-group" id="hora">
+        <label for="horAccidente" class="control-label col-md-4">Hora del accidente</label>
+          <div class="col-md-5">
+        <input class="form-control" id="horAccidente" onfocus="return datosCorrectos()" type="time"  >
+          </div>
+          </div>
+
+  <div class="form-group" id="dia">
+      <label for="option" class="control-label col-md-4">Dia del accidente</label>
+         <div class="col-md-5">
+      <select class="form-control" name="" onfocus="return datosCorrectos()" id="diaAccidente">
+        <option value="">Seleccione</option>
+        <option value="Lunes">Lunes</option>
+        <option value="Martes">Martes</option>
+        <option value="Miércoles">Miércoles</option>
+        <option value="Jueves">Jueves</option>
+        <option value="Viernes">Viernes</option>
+        <option value="Sábado">Sábado</option>
+        <option value="Domingo">Domingo</option>
+      </select>
+           </div>
+ </div>
+ 
+ <!--<?php 
+$db = new Conexion();
+
+$sql = $db->query("SELECT *FROM provincia");
+$db->close();
+?> --> 
+        <div class="form-group" id="prov">
+        <label class="control-label col-md-4">Provincia:</label>
+	        <div class="col-md-5">
+			  <select class="form-control" name="prov_id" onfocus="return datosCorrectos()" id="provincia">
+				<option value="">--Seleccione--</option>
+			  </select>
+			</div>
+</div>
+        <div class="form-group" id="cant">
+			<label class="control-label col-md-4">Canton:</label>
+			<div class="col-md-5">
+			  <select class="form-control" name="cant_id" onfocus="return datosCorrectos()" id="canton">
+				<option value="">--Seleccione--</option>
+			  </select>
+			</div>
+</div>
+        
+        <div class="form-group" id="dist">
+			<label class="control-label col-md-4">Distrito:</label>
+			<div class="col-md-5">
+			  <select class="form-control" name="dist_id" onfocus="return datosCorrectos()" id="distrito">
+				<option value="">--Seleccione--</option>
+			  </select>
+			</div>
+</div>
+
+<div class="form-group" id="observ">
+  <label for="obsv"  class="control-label col-md-4">Observaciones</label>
+     <div class="col-md-5">
+     <textarea name="obsv" id="obsAccidente" onfocus="return datosCorrectos()"  rows="8" cols="40" placeholder="Escribe las observaciones del accidente">PRUEBA</textarea>
+       </div>
+</div>
+      
+          
+<!-- Boton Terminar -->
+ <div class="form-group">
+    <div class="col-md-4 col-md-offset-4">
+     <input id='btnTerminar1' type="button" class="btn btn-primary" value="Terminar"> 
+    <!--  <a href="?view=frmAmbiente" id='btnTerminar1' class="btn btn-primary">Terminar</a> -->
+      <!--<button class="btn btn-primary">Guardar</button> -->
+    </div>
+     </div>
+
+     

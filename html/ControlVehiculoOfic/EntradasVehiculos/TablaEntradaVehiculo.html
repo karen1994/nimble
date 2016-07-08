@@ -1,0 +1,67 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("SELECT * FROM `entradasalidavehiculooficial` INNER JOIN `tipomovimientoactivo`ON `entradasalidavehiculooficial`.`idTipoMovimiento`=
+`tipomovimientoactivo`.`idTipoMovimientoActivo` INNER JOIN `vehiculooficial` ON `vehiculooficial`.`idTipoActivo`=`tipomovimientoactivo`.`idTipoActivo`"); /*Consulta los datos del alcoholimetro*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+  <div class="table-responsive">
+<table id="example" class="display table-bordered alert-warning" cellspacing="0" width="100"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+
+	<th>Fecha de entrada</th>
+    <th>Hora de entrada</th>
+    <th>Kilometraje Final</th>
+    <th>Recorrido</th>
+    <th>Numero de Factura</th>
+    <th>Autorizacion</th>
+    <th>Hora de Factura</th>
+    <th>Litros Facturados</th>
+    <th>Kilometros</th>
+    <th>Monto de Factura</th>
+    <th>Pernote</th>
+    <th>Oficial que entrega entrada</th>
+    <th>Oficial que recibe entrada</th>
+    <th>Observaciones de Entrada</th>
+    <th>Numero de placa</th>
+    <th>Disponibilidad</th>
+  <th></th>
+
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+	<td><?php echo $r["fecEntradaVehi"]; ?></td>
+    <td><?php echo $r["horaEntradaVehi"]; ?></td>
+    <td><?php echo $r["kmFinal"]; ?></td>
+    <td><?php echo $r["recorridoVehi"]; ?></td>
+    <td><?php echo $r["numFactura"]; ?></td>
+    <td><?php echo $r["autorizacion"]; ?></td>
+    <td><?php echo $r["horaFactura"]; ?></td>
+    <td><?php echo $r["litrosFacturados"]; ?></td>
+    <td><?php echo $r["km"]; ?></td>
+    <td><?php echo $r["montoFactura"]; ?></td>
+    <td><?php echo $r["pernote"]; ?></td>
+    <td><?php echo $r["codOficEntregaVehiEntrada"]; ?></td>
+    <td><?php echo $r["codOficRecibeVehiEntrada"]; ?></td>
+    <td><?php echo $r["observEntVehi"]; ?></td>
+    <td><?php echo $r["numPlacaVehiculoOfic"]; ?></td>
+    <td><?php echo $r["estadoVehO"]; ?></td>
+
+	<td style="width:170px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=EditarEntradaVehiculo&&id=<?php echo $r['numPlacaVehiculoOfic'];?>"  class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar Entrada</a> <!--Incluye el documento editar.php-->
+
+	</td> <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

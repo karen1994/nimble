@@ -1,0 +1,48 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("select * from oficiales"); /*Consulta los datos del alcoholimetro*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+  <div class="table-responsive">
+<table id="example" class="display table-bordered alert-warning"cellspacing="0" width="100"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+    <th>Licencia de Conducir</th>
+    <th>Vencimiento de Licencia de Conducir</th>
+    <th>Permiso de Portacion de Armas</th>
+    <th>Vencimiento de Permiso de Portacion de Armas</th>
+    <th>Permiso de Conducir de COSEVI</th>
+    <th>Vencimiento de Permiso de Conducir de COSEVI</th>
+    <th>Permiso de Conducir del MOPT</th>
+    <th>Vencimiento de Permiso de Conducir del MOPT</th>
+    <th>Observaciones</th>
+  <th></th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+	    <td><?php echo $r["tipoLicenciaConducir"]; ?></td>
+       <td><?php echo $r["fecVencLicCond"]; ?></td>
+       <td><?php echo $r["numPermPortaArmas"]; ?></td>
+      <td><?php echo $r["fecVencPermPortaArma"]; ?></td>
+       <td><?php echo $r["numPerCondCOSEVI"]; ?></td>
+        <td><?php echo $r["fecVencPermCondCOSEVI"]; ?></td>
+         <td><?php echo $r["numPermCondMOPT"]; ?></td>
+          <td><?php echo $r["fecVenPermCondMOPT"]; ?></td>
+	<td><?php echo $r["observOficial"]; ?></td>
+	<td style="width:160px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=EditarPermisos&&id=<?php echo $r['idOficial'];?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar Permisos</a> <!--Incluye el documento editar.php-->
+	</td> <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

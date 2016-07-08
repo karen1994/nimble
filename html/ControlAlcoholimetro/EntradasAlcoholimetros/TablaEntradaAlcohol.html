@@ -1,0 +1,53 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("SELECT * FROM `entradasalidaalcoholimetro` INNER JOIN `tipomovimientoactivo`ON `entradasalidaalcoholimetro`.`idTipoMovimientoActivo`=
+`tipomovimientoactivo`.`idTipoMovimientoActivo` INNER JOIN `alcoholimetro` ON `alcoholimetro`.`idTipoActivo`=`tipomovimientoactivo`.`idTipoActivo`"); /*Consulta los datos del alcoholimetro*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+  <div class="table-responsive">
+<table id="example" class="display table-bordered alert-warning"cellspacing="0" width="100"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Fecha de entrada: </th>
+    <th>Hora de entrada: </th>
+    <th>Numero de la ultima prueba: </th>
+    <th>Oficial que entrega entrada: </th>
+    <th>Oficial que recibe entrada: </th>
+    <th>Observaciones de Entrada: </th>
+    <th>Numero de patrimonio: </th>
+    <th>Disponibilidad</th>
+    <th></th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+
+	<td><?php echo $r["fecEntradaAlcoh"]; ?></td>
+    <td><?php echo $r["horaEntradaAlcoh"]; ?></td>
+    <td><?php echo $r["numUltimaPrueba"]; ?></td>
+    <td><?php echo $r["codOficEntregaAlcohEntrada"]; ?></td>
+    <td><?php echo $r["codOficRecibeAlcohEntrada"]; ?></td>
+    <td><?php echo $r["observEntAlcoh"]; ?></td>
+    <td><?php echo $r["idnumPatrimonio"]; ?></td>
+    <td><?php echo $r["estadoServicioAlcoh"]; ?></td>
+
+
+
+	<td style="width:160px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=EditarEntradaAlcohol&&id=<?php echo $r['idnumPatrimonio'];?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar Entrada</a> <!--Incluye el documento editar.php-->
+
+	</td> <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si no hay registros -->
+<?php endif;
+$db->close();?>

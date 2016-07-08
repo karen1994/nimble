@@ -1,0 +1,38 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("select * from Persona"); /*Consulta los datos de la persona*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+  <div class="table-responsive">
+<table class="table table-bordered table-hover"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Cédula</th>
+	<th>Nombre</th>
+	<th>Primer apellido</th>
+	<th>Segundo apellido</th>
+  <th></th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+	<td><?php echo $r["cedPersona"]; ?></td>
+	<td><?php echo $r["nomPersona"]; ?></td>
+	<td><?php echo $r["ape1Persona"]; ?></td>
+	<td><?php echo $r["ape2Persona"]; ?></td>
+	<td style="width:150px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=EditPeMatricula&&id=<?php echo $r['idPersona'];?>" class="btn btn-sm btn-warning">Editar</a> <!--Incluye el documento editar.php-->
+	</td> <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

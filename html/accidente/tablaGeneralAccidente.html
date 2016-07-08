@@ -1,0 +1,104 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("SELECT *FROM accidente INNER JOIN `ubicacion` ON accidente.`idUbicación` = ubicacion.`idUbicacion` 
+INNER JOIN `inspector` ON accidente.`numBoletaAccidente` = inspector.`numBoletaAccidente`
+INNER JOIN `autoridadjudicial` ON inspector.`numBoletaAccidente` = autoridadjudicial.`numBoletaAccidente`
+INNER JOIN implicados ON autoridadjudicial.`numBoletaAccidente`= implicados.`numBoletaAccidente`
+INNER JOIN `ruta` ON implicados.`numBoletaAccidente` = ruta.`numBoletaAccidente` INNER JOIN `delegacion` ON accidente.`idDelegacion` = delegacion.`IDdelegacion`
+INNER JOIN `provincia` ON ubicacion.`idProvincia` = provincia.`idProvincia`
+INNER JOIN `canton` ON ubicacion.`idCanton` = canton.`idCanton` INNER JOIN `distrito` ON 
+ubicacion.`idDistrito` = distrito.`idDistrito`"); /*Consulta los datos del accidente*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+
+
+<div class="table-responsive">
+<table id="example" class="display table-bordered info" cellspacing="0" width="100%"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Número de boleta</th>
+	<th>Autoridad Judicial</th>
+	<th>Delegación</th>
+	<th>Código inspector</th>
+	<th>Fecha del accidente</th>
+	<th>Hora del accidente</th>
+        <th>Día del accidente</th>
+        <th>Provincia</th>
+	<th>Cantón</th>
+        <th>Distrito</th>
+	<th>Ruta del accidente</th>
+	<th>Kilómetro</th>
+	<th>Otras señas</th>
+	<th>Número de implicados</th>
+	<th>Accidente con</th>
+        
+        <!--
+  <th>Estructura Especial</th>
+  <th>Clase de calzada</th>
+  <th>Condición de calzada</th>
+  <th>Estado de la calzada</th>
+  <th>Iluminación</th>
+  <th>Estado del ambiente</th>
+  <th>Alinea. vertical</th>
+  <th>Alinea. Horizontal</th>
+  <th>Señalamiento vial</th>
+  <th>Tipo de intersección</th>
+  <th>Carriles</th>
+  <th>Existencia de</th>
+  <th>Sentido vía</th>
+  <th>Tipo de accidente</th>
+  <th>Vehículo en circulación</th>
+  <th>Obstaculos en la vía</th>
+  <th>Velocidad de la carretera</th>
+        -->
+  <th>Observaciones</th>
+  <th></th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+	<td><?php echo $r["numBoletaAccidente"]; ?></td>
+	<td><?php echo $r["nomAutoridadJudicial"]; ?></td>
+	<td><?php echo $r["nombreDelegacion"]; ?></td>
+	<td><?php echo $r["codigoInspector"]; ?></td>
+	<td><?php echo $r["fecAccidente"]; ?></td>
+  <td><?php echo $r["HoraAccidente"]; ?></td>
+  <td><?php echo $r["DiaAccidente"]; ?></td>
+  <td><?php echo $r["nomProvincia"]; ?></td>
+  <td><?php echo $r["nomCanton"]; ?></td>
+  <td><?php echo $r["nomDistrito"]; ?></td>
+  <td><?php echo $r["numRuta"]; ?></td>
+  <td><?php echo $r["km"]; ?></td>
+  <td><?php echo $r["senas"]; ?></td>
+  <td><?php echo $r["numeroImplicados"]; ?></td>
+  <td><?php echo $r["estadoImplicados"]; ?></td>
+  <td> </td>
+	<td style="width:150px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=editarAccidente&&id=<?php echo $r['numBoletaAccidente'];?>" value="hola" class="btn btn-sm btn-warning">Editar</a> <!--Incluye el documento editar.php-->
+		<!-- Botón de eliminar -->
+		<a href="#" id="del-<?php echo $r['id'];?>" class="btn btn-sm btn-danger">Eliminar</a> <!--Incluye el documento eliminar.php-->
+		<script>
+		$("#del-).click(function(e){
+			e.preventDefault();
+			p = confirm("Estas seguro?");
+			if(p){
+				window.location="./php/eliminar.php?id="+<?php echo $r["id"];?>;
+
+			}
+
+		});
+		</script>
+	</td> <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

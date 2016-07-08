@@ -1,0 +1,115 @@
+
+
+               <div class="form-group">
+                   <div class="col-md-4 col-md-offset-4">
+                   <h3> Autoridad Judicial </h3>
+                   </div>
+               </div>
+  
+
+ <div class="form-group" id="autoridad">
+          <label for="autJudicial" class="control-label col-md-4">Autoridad Judicial</label>
+            <div class="col-md-5">
+          <input class="form-control" id="autJudicial" onfocus="return datosCorrectos()" type="text" value="COSEVI" maxlength="50" placeholder="">
+            </div>
+        </div> 
+
+  <hr>
+  
+                <div class="form-group">
+                      <div class="col-md-4 col-md-offset-4">
+                        <h3> Inspector </h3>
+                      </div>
+                </div>
+
+  <div class="form-group"  id="inspector">
+        <label for="codInspector" class="control-label col-md-4">Código del inspector</label>
+          <div class="col-md-5">
+        <input class="form-control" id="codInspector" onfocus="return datosCorrectos()" type="text" value="20" maxlength="5" placeholder="">
+          </div>
+   </div>
+   
+  <hr>
+
+                <div class="form-group">
+                      <div class="col-md-4 col-md-offset-4">
+                      <h3> Ruta </h3>
+                      </div>
+                </div>
+
+
+ <div class="form-group" id="ruta">
+      <label for="ruta" class="control-label col-md-4">Ruta del accidente</label>
+        <div class="col-md-5">
+      <input class="form-control" id="rutAccidente" onfocus="return datosCorrectos()" type="text" value="323" maxlength="3" placeholder="">
+        </div>
+</div>
+
+<div class="form-group" id="kilometro">
+     <label for="km" class="control-label col-md-4">Kilómetro</label>
+       <div class="col-md-5">
+     <input class="form-control" id="km" onfocus="return datosCorrectos()" type="text" value="20" maxlength="3" placeholder="">
+       </div>
+</div>
+<div class="form-group" id="vel" >
+     <label for="velocidad" class="control-label col-md-4">Velocidad de la carretera</label>
+       <div class="col-md-5">
+<input  class="form-control" id="velocidad" type="text" onfocus="return datosCorrectos()" maxlength="3" placeholder="">
+       </div>
+</div>
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="form-group" id="sen">
+  <label for="senas" class="control-label col-md-4">Otras señas</label>
+     <div class="col-md-5">
+     <textarea name="senas" id="senas" rows="8" onfocus="return datosCorrectos()"  cols="40" placeholder="Escribe otras señas para ubicar el accidente">PRUEBA</textarea>
+       </div>
+</div>
+<br>
+                
+  <hr>
+                <div class="form-group">
+                  <div class="col-md-4 col-md-offset-4">
+                  <h3> Implicados </h3>
+                   </div>
+                </div>
+
+    
+    <div class="form-group" id="implicados">
+       <label for="nImplicados" class="control-label col-md-4">Número de implicados</label>
+       <div class="col-md-5">
+       <input class="form-control" id="numImplicados" onfocus="return datosCorrectos()" type="text"  value="2" maxlength="3" placeholder="">
+       </div>
+    </div>
+
+<div class="form-group" id="estado">
+    <label for="option" class="control-label col-md-4">Accidente con</label>
+       <div class="col-md-5">
+    <select class="form-control" name="" onfocus="return datosCorrectos()" id="accCon">
+      <option value="">Seleccione</option>
+      <option value="Heridos">Heridos</option>
+      <option value="Muertes">Muertes</option>
+      <option value="Daños materiales">Daños materiales</option>
+    </select>
+         </div>
+</div>
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-4">
+            <div id="_AJAX_ACCIDENTE_"></div>
+            </div>
+        </div>    
+                    
+                  <br>
+                   <!-- Boton Terminar -->
+ <div class="form-group">
+     <div class="col-md-4 col-md-offset-4">
+     <input id='btnTerminar2' type="button" class="btn btn-primary" value="Terminar"> 
+    <!--  <a href="?view=frmAmbiente" id='btnTerminar1' class="btn btn-primary">Terminar</a> -->
+      <!--<button class="btn btn-primary">Guardar</button> -->
+     </div>
+ </div>
+                    

@@ -1,0 +1,48 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("select * from Placa WHERE `numOficioPlaca` IS NOT NULL"); /*Consulta los datos de la placa*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+  <div class="table-responsive">
+<table class="table table-bordered table-hover"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Boleta</th>
+	<th>Placa</th>
+	<th>Oficio</th>
+  <th>Fecha de salida</th>
+  <th>Nombre del encargado</th>
+  <th>Primer apellido</th>
+  <th>Segundo apellido</th>
+  <th>Tomo</th>
+	<th>Folio</th>
+  <th></th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+	<td><?php echo $r["numBoletaPlaca"]; ?></td>
+	<td><?php echo $r["numPlaca"]; ?></td>
+	<td><?php echo $r["numOficioPlaca"]; ?></td>
+  <td><?php echo $r["fecSalMatricula"]; ?></td>
+  <td><?php echo $r["nomPersonaEnvia"]; ?></td>
+  <td><?php echo $r["ape1PersonaEnvia"]; ?></td>
+  <td><?php echo $r["ape2PersonaEnvia"]; ?></td>
+  <td><?php echo $r["tomSalMatricula"]; ?></td>
+  <td><?php echo $r["folSalMatricula"]; ?></td>
+  <!-- Botón de editar salida -->
+  <td style="width:150px;">
+    <a href="?view=EditarSalidaMatricula&&id=<?php echo $r['idNumPlaca'];?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar salida</a>
+  </td>
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

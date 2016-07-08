@@ -1,0 +1,59 @@
+<form name="form1" action="" class="form-horizontal">
+
+  <div class="form-group">
+        <div class="col-md-4 col-md-offset-10">
+  <a id="regresar3" class="btn btn-success"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+        </div>
+  </div>
+
+  <div class="form-group">
+        <div class="col-md-8 col-md-offset-4">
+  <h1>Detención de matriculas</h1>
+        </div>
+  </div>
+
+<!--Motivo de la detención-->
+
+<div class="form-group">
+   <div class="col-md-4 col-md-offset-4">
+<h3> Motivo de la detención</h3>
+   </div>
+</div>
+
+<div class="form-group" id="articulo">
+  <label for="numArticulo" class="control-label col-md-4">Número de artículo</label>
+    <div class="col-md-5">
+  <input class="form-control" onfocus="return datosCorrectos()" id="numArticulo" type="text"  maxlength="10" value="">
+    </div>
+</div>
+
+<div class="form-group" id="motivo">
+<label for="desMotivo" class="control-label col-md-4">Motivo de la detención</label>
+<div class="col-md-5">
+<textarea id="desMotivo" onfocus="return datosCorrectos()" rows="8" cols="40" placeholder="Escribe el motivo de la detención"  maxlength="100"></textarea>
+  </div>
+</div>
+
+<br>
+
+<div class="form-group">
+<div class="col-md-4 col-md-offset-4">
+<p id="_AJAX_Matricula_"></p>
+</div>
+</div>
+
+<div class="form-group">
+   <div class="col-md-4 col-md-offset-4">
+   <a  id="btnTerminar3" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Terminar</a>
+   </div>
+</div>
+
+<div class="form-group" id="btnGuardarMatriculaDiv" style="display:none;">
+<div class="col-md-4 col-md-offset-4">
+<a  id="btnGuardarMatricula" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="?view=verMatricula" id="btnCancelarMatricula" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Cancelar</a>
+</div>
+</div>
+
+</form>

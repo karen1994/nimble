@@ -1,0 +1,117 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("SELECT *FROM accidente INNER JOIN `ubicacion` ON accidente.`idUbicación` = `ubicacion`.`idUbicacion` 
+INNER JOIN `inspector` ON accidente.`idAccidente` = inspector.`idAccidente`
+INNER JOIN `autoridadjudicial` ON inspector.`idAccidente` = autoridadjudicial.`idAccidente`
+INNER JOIN implicados ON autoridadjudicial.`idAccidente`= implicados.`idAccidente`
+INNER JOIN `ruta` ON implicados.`idAccidente` = ruta.`idAccidente` INNER JOIN `delegacion` ON accidente.`idDelegacion` = delegacion.`IDdelegacion`
+INNER JOIN `provincia` ON ubicacion.`idProvincia` = provincia.`idProvincia`
+INNER JOIN `canton` ON ubicacion.`idCanton` = canton.`idCanton` INNER JOIN `distrito` ON 
+ubicacion.`idDistrito` = distrito.`idDistrito`  "); /*Consulta los datos del accidente*/
+
+if(isset($_SESSION['app_id'])){
+    $usuario= $users[$_SESSION['app_id']]['tipoUsuario'];
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+
+
+<div class="table-responsive">
+<table id="example" class="display table-bordered " cellspacing="0" width="100%"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Número de boleta</th>
+        <th>Inspector</th>
+	<th>Fecha del accidente</th>
+	<th>Hora del accidente</th>
+        <th>Día del accidente</th>
+	<th>Provincia</th>
+	<th>Canton</th>
+	<th>Distrito</th>
+	<th>Observaciones</th>
+      
+        
+        <!--
+  <th>Estructura Especial</th>
+  <th>Clase de calzada</th>
+  <th>Condición de calzada</th>
+  <th>Estado de la calzada</th>
+  <th>Iluminación</th>
+  <th>Estado del ambiente</th>
+  <th>Alinea. vertical</th>
+  <th>Alinea. Horizontal</th>
+  <th>Señalamiento vial</th>
+  <th>Tipo de intersección</th>
+  <th>Carriles</th>
+  <th>Existencia de</th>
+  <th>Sentido vía</th>
+  <th>Tipo de accidente</th>
+  <th>Vehículo en circulación</th>
+  <th>Obstaculos en la vía</th>
+  <th>Velocidad de la carretera</th>
+        -->
+ 
+ <?php if($usuario == 0 || $usuario == 1 ){ ?>
+         <th></th>
+<?php } ?> 
+
+ 
+  <th></th>
+  <th></th>
+  <th></th>
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+  <td><?php echo $r["numBoletaAccidente"]; ?></td>
+  <td><?php echo $r["codigoInspector"]; ?></td>
+  <td><?php $fecha= $r["fecAccidente"];
+     echo $fec= formatear($fecha); ?></td>
+  <td><?php echo $r["HoraAccidente"]; ?></td>
+  <td><?php echo $r["DiaAccidente"]?></td>
+  <td><?php echo $r["nomProvincia"]; ?></td>
+  <td><?php echo $r["nomCanton"]; ?></td>
+  <td><?php echo $r["nomDistrito"]; ?></td>
+  <td><?php echo $r["observ"]; ?></td>
+
+<?php 
+    if($usuario == 0 || $usuario == 1 ){
+    ?> 
+       
+        <td style="width:150px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=editarAccidente&&id=<?php echo $r['idAccidente'];?>"  class="btn btn-sm btn-warning">Editar Accidente</a> <!--Incluye el documento editar.php-->
+		<!-- Botón de eliminar -->	
+	</td> <!-- Fin de columnas de botones -->
+	<?php  
+  } //FIN
+
+?>
+	<td style="width:150px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=verAmbiente&&id=<?php echo $r['numBoletaAccidente'];?>"  class="btn btn-sm btn-success">Ver Ambiente</a> <!--Incluye el documento editar.php-->
+		<!-- Botón de eliminar -->	
+	</td> <!-- Fin de columnas de botones -->
+        <td style="width:150px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=editarRuta&&id=<?php echo $r['idAccidente'];?>" value="hola" class="btn btn-sm btn-success">Ver Ruta</a> <!--Incluye el documento editar.php-->
+		<!-- Botón de eliminar -->	
+	</td> <!-- Fin de columnas de botones -->
+        <td style="width:150px;"> <!-- Inicia columnas de botones -->
+		<!-- Botón de editar -->
+		<a href="?view=editarImplicados&&id=<?php echo $r['idAccidente'];?>" value="hola" class="btn btn-sm btn-success">Ver Implicados</a> <!--Incluye el documento editar.php-->
+		<!-- Botón de eliminar -->	
+	</td> <!-- Fin de columnas de botones -->
+      
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;
+}?>

@@ -1,0 +1,87 @@
+<?php
+if(isset($_SESSION['app_id'])){
+    $usuario= $users[$_SESSION['app_id']]['id'];
+
+    ?>
+
+<div class="container">
+    <br>
+<header>
+  <nav class="navbar navbar-default" >
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle colapsed" data-toggle="collapse" data-target="#navegacion-fm">
+              <span class="sr-only">Desplegar / Ocultar Menu</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a href="?view=menuPrincipal" class="navbar-brand">Policía de Tránsito</a>
+        </div>
+<!--Inicia Menú -->
+<div class="collapse navbar-collapse " id="navegacion-fm">
+  <ul class="nav navbar-nav">
+
+                       <!-- Detenciones -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-road"></span>
+                                Detenciones<span class="caret"></span>
+                                   </a>
+                            <ul class="dropdown-menu ">
+                                  <li><a href="?view=verDetenciones">Detenciones de vehiculos</a></li>
+                                  <li><a href="?view=verMatricula">Detenciones de matricula</a></li>
+                            </ul>
+                            </li> <!-- Fin del Dropdown -->
+                            <!-- Accidentes -->
+                             <li class="dropdown">
+                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-fire"></span>
+                                     Accidentes <span class="caret"></span>
+                                        </a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="?view=verAccidente">Registro de accidentes</a></li>
+                                 </ul>
+                            </li> <!-- Fin del Dropdown -->
+                              <!-- Oficiales -->
+                              <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-user"></span>
+                                      Oficiales <span class="caret"></span>
+                                         </a>
+                                  <ul class="dropdown-menu">
+                                     <li><a href="?view=VerDatosOficiales">Registro de oficiales</a></li>
+                                  </ul>
+                              </li> <!-- Fin del Dropdown -->
+                            <!-- Activos -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-home"></span>
+                                    Activos<span class="caret"></span>
+                                       </a>
+                               <ul class="dropdown-menu">
+                                  <li><a href="?view=verAlcoholimetro">Registro de alcoholimetros</a></li>
+                                  <li><a href="?view=verVehiculoOfic">Registro de vehiculos oficiales</a></li>
+                               </ul>
+                            </li> <!-- Fin del Dropdown -->
+
+                          <!-- Mi cuenta -->
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-cog"></span>
+                                  Mi cuenta <span class="caret"></span>
+                                      </a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="?view=EditarUsuario&&id=<?php echo $usuario; ?>">Editar perfil de usuario</a></li>
+                              </ul>
+                          </li> <!-- Fin del Dropdown -->
+                          <!-- Salir -->
+                          <li class="dropdown">
+                              <a href="?view=index" role="button"><span class="glyphicon glyphicon-log-out"></span> Salir</a>
+                          </li> <!-- Fin del Dropdown -->
+
+      </ul>
+</div> <!--Fin Menú -->
+      </div>
+  </nav>
+</header>
+ </div>
+<!--Fin Main container -->
+
+<?php }
+?>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                                   <title>Policía de Tránsito</title>
+  <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="views/app/css/index.css">
+
+
+</head>
+<body>
+
+<?php include(HTML_DIR . '/menu/menu.html'); 
+$numBoleta= $_GET['id'];
+?>
+
+
+<br>
+  <!-- Formuario accidente-->
+<div class="container">
+
+    <div class="form-inline col-md-12 col-md-offset-4">
+<div class="form-group">
+      <div class="col-md-12">
+<h2>Sección Ambiente </h2>
+      </div>
+</div>
+     </div>
+     <br>
+     
+       <div class="form-horizontal col-md-12 col-md-offset-8" >
+         <label for="numBoleta" class="control-label col-md-2">Número de boleta :</label>
+            <div class="col-md-5">
+               <label for="numBoleta" class="control-label col-md-2"><?php echo $numBoleta; ?></label>
+                <input class="form-control" id="numBoleta" style="display: none;" value="<?php echo $numBoleta; ?>" type="text">
+                <br>
+            </div>
+       </div> 
+
+
+ 
+
+  <form name="form2" action="" class="form-inline">
+  
+   
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="1">
+  <label for="ambiente1" class="control-label col-md-4">Estructura Especial:</label>
+     <div class="col-md-5">
+       <select id="estEspecial" onchange="combo1()"  class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 4){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['1'.$b]['detalle']; ?>"><?php echo $ambiente['1'.$b]['detalle']; ?> </option>
+         <?php
+          }
+         ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+       <!-- <label  class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+             <p id="amb1"> </p>
+      <p id="amb1"></p> 
+         </div> -->
+</div>
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="2">
+  <label for="ambiente2" class="control-label col-md-4">Clase de calzada:</label>
+     <div class="col-md-5">
+       <select id="claCalzada" onchange="combo2()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 6){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['2'.$b]['detalle']; ?>"><?php echo $ambiente['2'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb2" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+         <p id="amb2"> </p>
+         </div>  -->
+</div>
+
+
+
+<br>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="3">
+  <label for="ambiente3" class="control-label col-md-4">Condición de calzada:</label>
+     <div class="col-md-5">
+       <select id="condCalzada" onchange="combo3()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 8){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['3'.$b]['detalle']; ?>"><?php echo $ambiente['3'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb3" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb3"> </p>
+         </div> -->
+</div>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="4">
+  <label for="ambiente4" class="control-label col-md-3">Estado de la calzada:</label>
+     <div class="col-md-5">
+       <select id="estCalzada" onchange="combo4()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 6){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['4'.$b]['detalle']; ?>"><?php echo $ambiente['4'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb4" class="control-label col-md-3">Selección:</label>
+         <div class="col-md-5">
+           <p id="amb4"> </p>
+          </div> -->
+</div>
+
+<br>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="5">
+  <label for="ambiente5" class="control-label col-md-4">Iluminación:</label>
+     <div class="col-md-5">
+       <select id="Iluminacion" onchange="combo5()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 5){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['5'.$b]['detalle']; ?>"><?php echo $ambiente['5'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb5" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+ <p id="amb5"> </p>         </div> -->
+</div>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="6">
+  <label for="ambiente6" class="control-label col-md-4" >Estado del ambiente:</label>
+     <div class="col-md-5">
+       <select id="estAmbiente" onchange="combo6()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 7){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['6'.$b]['detalle']; ?>"><?php echo $ambiente['6'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+       
+        <!--<label for="amb6" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb6"> </p>
+         </div> -->
+</div>
+
+<br>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="7">
+  <label for="ambiente7" class="control-label col-md-4">Alinea. vertical:</label>
+     <div class="col-md-5">
+       <select id="aliVertical" onchange="combo7()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 4){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['7'.$b]['detalle']; ?>"><?php echo $ambiente['7'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb7" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb7"> </p>
+         </div> -->
+</div>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="8">
+  <label for="ambiente8" class="control-label col-md-4">Alinea. Horizontal:</label>
+     <div class="col-md-5">
+       <select id="aliHorizontal" onchange="combo8()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 7){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['8'.$b]['detalle']; ?>"><?php echo $ambiente['8'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb8" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb8"> </p>
+         </div> -->
+</div>
+
+<br>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="9">
+  <label for="ambiente9" class="control-label col-md-3">Señalamiento vial:</label>
+     <div class="col-md-5">
+       <select id="senVial" onchange="combo9()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 11){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['9'.$b]['detalle']; ?>"><?php echo $ambiente['9'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb9" class="control-label col-md-3">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb9"> </p>
+         </div> -->
+</div>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="10">
+  <label for="ambiente10" class="control-label col-md-4">Tipo de intersección:</label>
+     <div class="col-md-5">
+       <select id="tipInterseccion" onchange="combo10()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 11){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['10'.$b]['detalle']; ?>"><?php echo $ambiente['10'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb10" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb10"> </p>
+         </div> -->
+</div>
+
+<br>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="11">
+  <label for="ambiente11" class="control-label col-md-4">Carriles:</label>
+     <div class="col-md-5">
+       <select id="carriles" onchange="combo11()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 8){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['11'.$b]['detalle']; ?>"><?php echo $ambiente['11'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb11" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb11"> </p>
+         </div> -->
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="12">
+  <label for="ambiente12" class="control-label col-md-4">Existencia de:</label>
+     <div class="col-md-5">
+       <select id="exiDe" onchange="combo12()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 6){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['12'.$b]['detalle']; ?>"><?php echo $ambiente['12'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb12" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb12"> </p>
+         </div> -->
+</div>
+
+<br>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="13">
+  <label for="ambiente13" class="control-label col-md-4">Sentido vía:</label>
+     <div class="col-md-5">
+       <select id="sentVia" onchange="combo13()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 4){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['13'.$b]['detalle']; ?>"><?php echo $ambiente['13'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb13" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb13"> </p>
+         </div> -->
+</div>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="14">
+  <label for="ambiente14" class="control-label col-md-4">Tipo de accidente:</label>
+     <div class="col-md-5">
+       <select id="tipAccidente" onchange="combo14()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 10){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['14'.$b]['detalle']; ?>"><?php echo $ambiente['14'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb14" class="control-label col-md-4">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb14"> </p>
+         </div> -->
+</div>
+
+<br>
+<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="form-group" id="15">
+  <label for="ambiente15" class="control-label col-md-3">Vehículo en circulación:</label>
+     <div class="col-md-5">
+       <select id="vehCirculacion" onchange="combo15()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 8){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['15'.$b]['detalle']; ?>"><?php echo $ambiente['15'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb15" lass="control-label col-md-3">Selección:</label>
+         <div class="col-md-5">
+        <p id="amb15"> </p>
+         </div> -->
+</div>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<div class="form-group" id="16">
+  <label for="ambiente16" class="control-label col-md-4">Obstaculos en la vía:</label>
+     <div class="col-md-5">
+       <select id="obsVia" onchange="combo16()" onfocus="return datosCorrectos()" class="form-control"  name=""  >
+         <option value="0">Seleccione </option>
+         <?php
+           $b=0;
+         while($b < 18){
+             $b= $b+1;
+             ?>
+              <option value="<?php echo $ambiente['16'.$b]['detalle']; ?>"><?php echo $ambiente['16'.$b]['detalle']; ?> </option>
+        <?php
+          }
+
+        ?>
+       </select>
+       </div>
+       <br>
+       <br>
+       <br>
+        <!--<label for="amb16" class="control-label col-md-4" >Selección:</label>
+         <div class="col-md-5">
+        <p id="amb16"> </p>
+         </div> -->
+</div>
+
+<br>
+<br>
+<br>
+
+
+   <div class="form-group">
+           <div class="col-md-4 col-md-offset-4">
+              <div id="_AJAX_ACCIDENTE_"></div>
+                  </div>
+                    </div>  
+
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ 
+
+<!-- Boton Terminar -->
+ <div class="form-group" id="btnTermina2DIV">
+    <div class="col-md-4 col-md-offset-4">
+     <input id='btnTerminar2' type="button" class="btn btn-primary" value="Terminar">
+      <!--<button class="btn btn-primary">Guardar</button> -->
+    </div>
+     </div>
+
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<!-- Boton Terminar -->
+ <div class="form-group" id="btnGuadarDIV" style="display: none;">
+    <div class="col-md-4 col-md-offset-4">
+     <input id='btnGuardarAmbiente' type="button" class="btn btn-primary" value="Guardar">
+      <!--<button class="btn btn-primary">Guardar</button> -->
+    </div>
+     </div>
+<br>
+<br>
+<br>
+
+</form>
+
+</div> <!--Fin del div container-->
+
+
+
+
+<!--Sección del footer-->
+<footer>
+</footer>
+
+<script src="views/bootstrap/jquery/jquery.min.js"></script>
+<script src="views/bootstrap/js/bootstrap.min.js"></script>
+<script src="views/app/js/generales.js"></script>
+<script src="views/app/js/accidente/regAmbienteAcc.js"></script>
+
+
+
+
+</body>
+</html>
+   

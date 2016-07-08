@@ -1,0 +1,77 @@
+<?php
+/*Incluye el documento conexion.php*/
+  $db  = new Conexion();
+
+$user_id=null;
+$sql = $db->query("SELECT *FROM detenciones INNER JOIN tipovehiculo ON detenciones.`idTipoVehiculo` = tipovehiculo.`idTipoVehiculo`
+INNER JOIN `bicicleta` ON detenciones.`idTipoVehiculo` = `bicicleta`.`idTipoVehiculo`
+INNER JOIN persona WHERE detenciones.`idPersona` = Persona.`idPersona`"); /*Consulta los datos de la detencion de la bicicleta*/
+?>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+
+
+  <div class="table-responsive">
+<table id="example" class="display table-bordered" cellspacing="0" width="100%"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Boleta </th>
+	<th>Fecha boleta</th>
+	<th>Placa</th>
+	<th>Tomo</th>
+	<th>Folio</th>
+	<th>Oficial que detiene</th>
+  <th>Oficial que recibe</th>
+  <th>Estado</th>
+  <th></th>
+  <th><a href="?view=verBicicletas" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver bicicletas</a></th>
+  <th><a href="?view=verMotivosBici" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver motivos</a></th>
+  <th><a href="?view=verPersonasBici" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver conductores</a></th>
+  <th><a href="?view=verSalidasBici" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-list"></span> Ver salidas</a></th>
+
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+  <?php  $estado;
+    if($r["estadoBici"]== 1){
+    $estadoBici= "Activo";}else{
+    $estadoBici="Inactivo";}
+    ?>
+	<td><?php echo $r["numBoletaDetencion"]; ?></td>
+	<td><?php echo $r["fecBoletaDetencion"]; ?></td>
+  <td><?php echo $r["numMarcoBici"]; ?></td>
+	<td><?php echo $r["TomoDetenciones"]; ?></td>
+	<td><?php echo $r["FolioDetenciones"]; ?></td>
+  <td><?php echo $r["codOficialDetiene"]; ?></td>
+  <td><?php echo $r["codOficialRecibe"]; ?></td>
+  <td><?php echo $estadoBici; ?></td>
+
+  <td style="width:150px;"> <!-- Inicia columnas de botones -->
+    <!-- Botón de editar -->
+		<a href="?view=EditarDetencionBici&&id=<?php echo $r['idDetenciones'];?>" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-pencil"></span> Editar detención</a>
+	</td>
+  <!-- Botón ver placa -->
+<td>
+  <a href="?view=EditarBici&&id=<?php echo $r['idBicicleta'];?>"  class="btn btn-sm btn-success"><span class="icon-bicycle"></span> Ver bicicleta</a>
+</td>
+  <!-- Botón ver motivo -->
+<td>
+  <a href="?view=EditarMoBici&&id=<?php echo $r['idMotivo'];?>"  class="btn btn-sm btn-success"><span class="glyphicon glyphicon-book"></span> Ver motivo</a>
+</td>
+  	<!-- Botón ver persona -->
+  <td>
+    <a href="?view=EditarPeBici&&id=<?php echo $r['idPersona'];?>"  class="btn btn-sm btn-success"><span class="glyphicon glyphicon-user"></span> Ver conductor</a>
+  </td>
+  	<!-- Botón agregar salida-->
+  <td>
+    <a href="?view=frmSalidaBici&&id=<?php echo $r['idBicicleta'];?>"  class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> Agregar salida</a>
+  </td> <!-- Fin de columnas de botones -->
+</tr>
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>

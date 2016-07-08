@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Policía de Tránsito</title>
+    <script type="text/javascript" language="javascript" src="ajax.js"></script>
+    <script src="views/bootstrap/jquery/jquery.min.js"></script> 
+     <script src="views/bootstrap/js/bootstrap.min.js"></script>
+     
+    <link rel="stylesheet" href="views/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="views/app/css/index.css">
+    
+  <link rel="stylesheet" type="text/css" href="views/dataTable/media/css/jquery.dataTables.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css" />
+  <script type="text/javascript" language="javascript" src="views/app/js/dataTable.js"></script> 
+  <script type="text/javascript" language="javascript" src="views/dataTable/media/js/jquery.js"></script> 
+  <script type="text/javascript" language="javascript" src="views/dataTable/media/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" language="javascript" src="//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
+</head>
+
+
+<body>
+<?php include(HTML_DIR . '/menu/menu.html'); ?>
+
+<div class="container">
+<!-- Botón para garegar accidente-->
+<br>
+<?php 
+$db = new Conexion();
+$sql= $db->query("SELECT * FROM bitacora");
+
+?>
+
+<div class="container">
+
+    <br>
+    <div class="col-md-4 col-md-offset-10">
+    <a id="regresar3" class="btn btn-success" href="?view=menuPrincipal"><span class="glyphicon glyphicon-arrow-left"></span> Ir al Inicio</a>
+      </div>
+  
+    </div>
+    <br>
+
+<!-- Tabla-->
+<?php if($sql->num_rows>0):?>
+
+    
+ <div class="card card-inverse card-info text-xs-center">
+  <div class="card-block">
+    <h3>Bitacora</h3>
+  </div>
+ </div>
+
+<div class="card card-block" style="background:#eeeeee ">
+<div class="table-responsive">
+<table id="example" class="display table-bordered" cellspacing="0" width="100%"> <!--Inico de tabla-->
+<!-- Campos de la tabla -->
+<thead>
+	<th>Operación</th>
+        <th>Usuario</th>
+	<th>Fecha</th>
+	<th>Hora</th>
+	<th>Tabla</th>
+        
+        
+        <!--
+  <th>Estructura Especial</th>
+  <th>Clase de calzada</th>
+  <th>Condición de calzada</th>
+  <th>Estado de la calzada</th>
+  <th>Iluminación</th>
+  <th>Estado del ambiente</th>
+  <th>Alinea. vertical</th>
+  <th>Alinea. Horizontal</th>
+  <th>Señalamiento vial</th>
+  <th>Tipo de intersección</th>
+  <th>Carriles</th>
+  <th>Existencia de</th>
+  <th>Sentido vía</th>
+  <th>Tipo de accidente</th>
+  <th>Vehículo en circulación</th>
+  <th>Obstaculos en la vía</th>
+  <th>Velocidad de la carretera</th>
+        -->
+ 
+  
+ 
+</thead>
+<!-- Muestra los datos en los campos correspondientes -->
+<?php while ($r=$sql->fetch_array()):?>
+<tr>
+  <td><?php echo $r["nomTransaccion"]; ?></td>
+  <td><?php echo $r["codUsuario"]; ?></td>
+  <td><?php $fecha= $r["fecha"];
+  echo $fec= formatear($fecha); ?></td>
+  <td><?php echo $r["hora"]; ?></td>
+  <td><?php echo $r["nomTabla"];?></td>
+  
+</tr>
+    
+<?php endwhile;?>
+</table> <!--Fin de tabla-->
+  </div>
+  </div>
+<?php else:?>
+	<p class="alert alert-warning">No hay resultados</p> <!-- Alerta de si hay registros -->
+<?php endif;?>
+
+    </div>
+</body>
+</html>
+
+
+
+
