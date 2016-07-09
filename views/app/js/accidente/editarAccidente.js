@@ -130,7 +130,7 @@ var hola;
   connect.send(form);//Envia los datos a ajax
 
 
-    // } //FIN DEL ELSE
+     } //FIN DEL ELSE
 
 }
 
