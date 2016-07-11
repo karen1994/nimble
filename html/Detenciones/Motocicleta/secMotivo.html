@@ -11,17 +11,17 @@
       </div>
 </div>
 
-<div class="form-group">
+<div class="form-group" id="articulo">
      <label for="numArticulo" class="control-label col-md-4">Número de artículo</label>
      <div class="col-md-5">
-     <input class="form-control" id="numArticulo" type="text"  maxlength="5" placeholder="" value="">
+     <input class="form-control" onfocus="return datosCorrectos()" id="numArticulo" type="text"  maxlength="10" placeholder="" value="">
      </div>
 </div>
 
-<div class="form-group">
+<div class="form-group" id="motivo">
      <label for="decripMot" class="control-label col-md-4">Descripción del motivo</label>
      <div class="col-md-5">
-      <textarea id ="decripMot"  rows="8" cols="40" maxlength="100" placeholder="Escriba la descripción del motivo de la detención"></textarea>
+      <textarea id ="decripMot" onfocus="return datosCorrectos()" rows="8" cols="40" maxlength="100" placeholder="Escriba la descripción del motivo de la detención"></textarea>
      </div>
 </div>
 

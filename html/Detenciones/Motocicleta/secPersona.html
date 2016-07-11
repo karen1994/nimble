@@ -13,35 +13,35 @@
 
      <div class="form-group">
            <div class="col-md-4 col-md-offset-4">
-     <h3>Registrar persona</h3>
+     <h3>Registrar conductor</h3>
            </div>
      </div>
 
-        <div class="form-group">
-          <label for="cedPersona" class="control-label col-md-4">Cédula</label>
+        <div class="form-group" id="cedula">
+          <label for="cedPersona" class="control-label col-md-4">Identificación</label>
           <div class="col-md-5">
-          <input class="form-control" id="cedPersona" type="text" placeholder="" value="" maxlength="20">
+          <input class="form-control" onfocus="return datosCorrectos()" id="cedPersona" type="text" placeholder="" value="" maxlength="20">
           </div>
         </div>
 
-   <div class="form-group ">
+   <div class="form-group" id="nombre">
         <label for="nomPersona" class="control-label col-md-4">Nombre</label>
         <div class="col-md-5">
-        <input class="form-control" id="nomPersona" type="text" placeholder="" value="" maxlength="50">
+        <input class="form-control" onfocus="return datosCorrectos()" id="nomPersona" type="text" placeholder="" value="" maxlength="50">
         </div>
    </div>
 
-   <div class="form-group">
+   <div class="form-group" id="apellido1">
         <label for="ape1Persona" class="control-label col-md-4">Primer Apellido</label>
         <div class="col-md-5">
-        <input class="form-control" id="ape1Persona" type="text" placeholder="" value="" maxlength="50">
+        <input class="form-control" onfocus="return datosCorrectos()" id="ape1Persona" type="text" placeholder="" value="" maxlength="50">
         </div>
    </div>
 
-   <div class="form-group">
+   <div class="form-group" id="apellido2">
         <label for="ape2Persona" class="control-label col-md-4">Segundo Apellido</label>
         <div class="col-md-5">
-        <input class="form-control" id="ape2Persona" type="text" placeholder="" value="" maxlength="50">
+        <input class="form-control" onfocus="return datosCorrectos()" id="ape2Persona" type="text" placeholder="" value="" maxlength="50">
         </div>
   </div>
 

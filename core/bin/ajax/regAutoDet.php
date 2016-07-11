@@ -35,7 +35,7 @@ $db= new Conexion();
       $HTML=  '<div class="alert alert-dismissible alert-danger">
        <button type="button" class="close" data-dismiss="alert">x</button>
        <h4>ERROR</h4>
-        <p><strong>El oficial que detuvo el autómivil no existe...!</strong></p>
+        <p><strong>El oficial que detuvo el automóvil no existe...!</strong></p>
         </div>';
 
 

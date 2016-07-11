@@ -1,3 +1,4 @@
+//Función donde se guardarn los datos validados por las funciones anteriores
 function guardarAutomovil(){
 
   var connect, form, response, result ,cedPersona, nomPersona, ape1Persona, ape2Persona,
@@ -23,14 +24,12 @@ observAuto= __('observAuto').value ;
 numArticulo= __('numArticulo').value;
 decripMot= __('decripMot').value;
 
-
 form = 'cedPersona=' + cedPersona + '&nomPersona=' + nomPersona + '&ape1Persona=' + ape1Persona +
  '&ape2Persona=' + ape2Persona + '&numBoletaDetencion=' + numBoletaDetencion +
  '&fecBoletaDetencion=' + fecBoletaDetencion +  '&numLlave=' + numLlave+ '&tomoDetencion=' + tomoDetencion +
  '&folioDetenciones=' + folioDetenciones + '&codOficialDetiene=' + codOficialDetiene  +
  '&codOficialRecibe=' + codOficialRecibe  + '&identAuto=' + identAuto + '&marcaAuto=' + marcaAuto +
  '&colorAuto=' + colorAuto + '&observAuto=' + observAuto + '&numArticulo=' + numArticulo + '&decripMot=' + decripMot;
-
 
   connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); //Función que permite que se visualice en todos los  navegadores
   connect.onreadystatechange = function() {
@@ -42,7 +41,8 @@ form = 'cedPersona=' + cedPersona + '&nomPersona=' + nomPersona + '&ape1Persona=
       STATUS: 404= Cuando no se encuentra ajax.php?mode=login
               200= Cuando si se encuentra el archivo*/
 
-    if(connect.readyState == 4 && connect.status == 200) { //Revisa el estado de la conexión con ajax
+//Revisa el estado de la conexión con ajax
+    if(connect.readyState == 4 && connect.status == 200) {
       if(connect.responseText == 1) {
 
         result = '<div class="alert alert-dismissible alert-success">';
@@ -67,9 +67,9 @@ form = 'cedPersona=' + cedPersona + '&nomPersona=' + nomPersona + '&ape1Persona=
   connect.open('POST','ajax.php?mode=regAutomovil',true); //Abre una conexión con ajax
   connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); //Mantiene los datos encriptados.
   connect.send(form); //Envia los datos a ajax
-
 }
 
+//Función que identifica los campos con colores
 function datosCorrectos(){
   if(cedPersona.value != ""){
           $("#cedula").removeClass('has-error');
@@ -139,10 +139,10 @@ function datosCorrectos(){
              $("#motivo").removeClass('has-error');
               $("#motivo").addClass('has-success');
      }
-}
+                              }
 
-  //valida campos
-
+ //Valida los campos de los formularios
+//Formulario de conductor
 function validarFRM1(){
   if(cedPersona.value == ""){
           alert("El campo identificación es requerido");
@@ -164,9 +164,8 @@ function validarFRM1(){
        $("#secDetencion").show();
         $("#secPersona").hide();
      }
-
-     }
-
+                          }
+//Formulario de detención
 function validarFRM2(){
   if(numBoletaDetencion.value == ""){
           alert("El campo número de boleta es requerido");
@@ -201,7 +200,8 @@ function validarFRM2(){
       $("#secDetencion").hide();
         $("#secAutomovil").show();
         }
-}
+                        }
+//Formulario del automóvil
 function validarFRM3(){
     if(identAuto.value == ""){
             alert("El campo placa, vin, motor u otro es requerido");
@@ -220,8 +220,8 @@ function validarFRM3(){
       $("#secMotivo").show();
        $("#secAutomovil").hide();
         }
-}
-
+                        }
+//Formulario del motivo
 function validarFRM4(){
   if(numArticulo.value == ""){
           alert("El campo número de artículo es requerido");
@@ -235,19 +235,20 @@ function validarFRM4(){
     else{
   $("#btnGuadarDIV").show();
         }
+                       }
 
-}
-
+//Botones de regresar
+//Botón regresar del segundo formulario
 function regresar2(){
  $("#secPersona").show();
  $("#secDetencion").hide();
-}
-
+ }
+//Botón regresar del tercer formulario
 function regresar3(){
 $("#secDetencion").show();
 $("#secAutomovil").hide();
 }
-
+//Bóton regresar del cuarto formulario
 function regresar4(){
 $("#secAutomovil").show();
 $("#secMotivo").hide();

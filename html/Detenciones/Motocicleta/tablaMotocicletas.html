@@ -13,24 +13,20 @@ $sql = $db->query("SELECT * FROM `motocicleta` INNER JOIN detenciones ON `motoci
 <!-- Campos de la tabla -->
 <thead>
 	<th>Boleta</th>
-	<th>Placa</th>
+	<th>Placa, motor, marco u otro</th>
 	<th>Llave</th>
   <th>Marca</th>
   <th>Color</th>
-  <th>Número de motor</th>
-	<th>Número de marco</th>
   <th>Observaciones</th>
 </thead>
 <!-- Muestra los datos en los campos correspondientes -->
 <?php while ($r=$sql->fetch_array()):?>
 <tr>
 	<td><?php echo $r["numBoletaDetencion"]; ?></td>
-	<td><?php echo $r["numPlacaMoto"]; ?></td>
+	<td><?php echo $r["identMoto"]; ?></td>
   <td><?php echo $r["numLlave"]; ?></td>
 	<td><?php echo $r["marcaMoto"]; ?></td>
   <td><?php echo $r["colorMoto"]; ?></td>
-  <td><?php echo $r["numMotorMoto"]; ?></td>
-  <td><?php echo $r["numMarcoMoto"]; ?></td>
   <td><?php echo $r["observMoto"]; ?></td>
 </tr>
 <?php endwhile;?>

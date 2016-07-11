@@ -1,8 +1,8 @@
+//Función donde se guardarn los datos validados por las funciones anteriores
 function editarDetencionAuto() {
   var connect, form, response, result, numConsecutivo, numConsecutivoA, estado, numBoletaMatricula,
   fecBoleta, identAuto,  tomEntMatricula, folEntMatricula, ofiDetMatricula, ofiRecMatricula;
 // Parametros capturados del formulario
-
   numConsecutivo= __('numConsecutivo');
   numConsecutivoA= __('numConsecutivoA');
   estado= __('estado');
@@ -13,8 +13,7 @@ function editarDetencionAuto() {
   folEntMatricula= __('folEntMatricula');
   ofiDetMatricula= __('ofiDetMatricula');
   ofiRecMatricula= __('ofiRecMatricula');
-
-  //************** Se abre la conexion, si todo esta bien
+  //Se abre la conexion, si todo esta bien
       form ='numConsecutivo=' + numConsecutivo.value +
       '&numConsecutivoA=' + numConsecutivoA.value +
       '&estado=' + estado.value +
@@ -25,7 +24,8 @@ function editarDetencionAuto() {
       '&folEntMatricula=' + folEntMatricula.value +
       '&ofiDetMatricula=' + ofiDetMatricula.value +
       '&ofiRecMatricula=' + ofiRecMatricula.value;
-
+      //Valida los campos de los formularios
+      //Formulario editar detención
       if(numBoletaMatricula.value == ""){
               alert("El campo número de boleta es requerido");
               numBoletaMatricula.focus();
@@ -67,7 +67,10 @@ function editarDetencionAuto() {
       4= PHP devuelve los datos a JavaScript
       STATUS: 404= Cuando no se encuentra ajax.php?mode=login
               200= Cuando si se encuentra el archivo*/
-    if(connect.readyState == 4 && connect.status == 200) { //Revisa el estado de la conexión con ajax
+
+
+    //Revisa el estado de la conexión con ajax
+    if(connect.readyState == 4 && connect.status == 200) {
       if(connect.responseText == 1) {
 
         result = '<div class="alert alert-dismissible alert-success">';
@@ -94,6 +97,7 @@ function editarDetencionAuto() {
 }
 }
 
+//Función que identifica los campos con colores
 function datosCorrectos(){
      if (numBoletaMatricula.value != ""){
            $("#boleta").removeClass('has-error');
@@ -123,12 +127,13 @@ function datosCorrectos(){
              $("#oRecibe").removeClass('has-error');
               $("#oRecibe").addClass('has-success');
      }
-
-}
+                        }
 
 window.onload= function(){
-
+  //Valida cada formulario de una manera ordenada
+  //EL boton guardar finalmente guarda todos los datos ya validados.
   var btnActualizar= __('btnActualizar');
 
+  //Llamadas a las funciones
   btnActualizar.addEventListener("click", editarDetencionAuto);
 };

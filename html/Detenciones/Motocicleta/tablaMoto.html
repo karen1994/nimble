@@ -7,7 +7,6 @@ $sql = $db->query("SELECT *FROM detenciones INNER JOIN tipovehiculo ON detencion
 INNER JOIN `motocicleta` ON detenciones.`idTipoVehiculo` = `motocicleta`.`idTipoVehiculo`
 INNER JOIN persona WHERE detenciones.`idPersona` = Persona.`idPersona`"); /*Consulta los datos de la detencion de la motocicleta*/
 ?>
-
 <!-- Tabla-->
 <?php if($sql->num_rows>0):?>
 
@@ -18,7 +17,7 @@ INNER JOIN persona WHERE detenciones.`idPersona` = Persona.`idPersona`"); /*Cons
 <thead>
 	<th>Boleta </th>
 	<th>Fecha boleta</th>
-	<th>Placa</th>
+	<th>Placa, motor, marco u otro</th>
 	<th>Tomo</th>
 	<th>Folio</th>
 	<th>Oficial que detiene</th>
@@ -41,7 +40,7 @@ INNER JOIN persona WHERE detenciones.`idPersona` = Persona.`idPersona`"); /*Cons
       ?>
 	<td><?php echo $r["numBoletaDetencion"]; ?></td>
 	<td><?php echo $r["fecBoletaDetencion"]; ?></td>
-  <td><?php echo $r["numPlacaMoto"]; ?></td>
+  <td><?php echo $r["identMoto"]; ?></td>
 	<td><?php echo $r["TomoDetenciones"]; ?></td>
 	<td><?php echo $r["FolioDetenciones"]; ?></td>
   <td><?php echo $r["codOficialDetiene"]; ?></td>

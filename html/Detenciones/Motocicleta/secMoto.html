@@ -11,46 +11,31 @@
       </div>
 </div>
 
-  <div class="form-group">
-    <label for="numPlacaMoto" class="control-label col-md-4">Número de Placa</label>
+  <div class="form-group" id="IdMoto">
+    <label for="numPlacaMoto" class="control-label col-md-4">Placa, motor, marco u otro</label>
     <div class="col-md-5">
-    <input class="form-control" id="numPlacaMoto" type="text" maxlength="12" placeholder="" value="">
+    <input class="form-control" onfocus="return datosCorrectos()" id="identMoto" type="text" maxlength="25" placeholder="" value="">
     </div>
   </div>
 
-  <div class="form-group ">
+  <div class="form-group" id="marca">
     <label for="marcaMoto" class="control-label col-md-4">Marca</label>
     <div class="col-md-5">
-    <input class="form-control" id="marcaMoto" type="text" maxlength="25" placeholder="" value="">
+    <input class="form-control" onfocus="return datosCorrectos()" id="marcaMoto" type="text" maxlength="25" placeholder="" value="">
     </div>
   </div>
 
-  <div class="form-group ">
+  <div class="form-group" id="color">
      <label for="colorMoto" class="control-label col-md-4">Color</label>
      <div class="col-md-5">
-     <input class="form-control" id="colorMoto" type="text" maxlength="15" placeholder="" value="">
+     <input class="form-control" onfocus="return datosCorrectos()" id="colorMoto" type="text" maxlength="15" placeholder="" value="">
      </div>
   </div>
 
-  <div class="form-group ">
-     <label for="numMotorMoto" class="control-label col-md-4">Número de motor</label>
-     <div class="col-md-5">
-     <input class="form-control" id="numMotorMoto" type="text" maxlength="20" placeholder="" value="">
-     </div>
-  </div>
-
-  <div class="form-group ">
-     <label for="numMarcoMoto" class="control-label col-md-4">Numero de marco</label>
-     <div class="col-md-5">
-     <input class="form-control" id="numMarcoMoto" type="text" maxlength="20" placeholder="" value="">
-     </div>
-    </div>
-
-
-  <div class="form-group">
+  <div class="form-group" id="observacion">
     <label for="observMoto" class="control-label col-md-4">Observaciones</label>
      <div class="col-md-5">
-     <textarea id ="observMoto"  rows="8" cols="40" maxlength="100" placeholder="Escriba las observaciones de la motocicleta"></textarea>
+     <textarea id ="observMoto" onfocus="return datosCorrectos()" rows="8" cols="40" maxlength="100" placeholder="Escriba las observaciones de la motocicleta"></textarea>
      </div>
   </div>
 

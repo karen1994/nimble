@@ -12,11 +12,9 @@ $db= new Conexion();
  $folioDetenciones= $_POST['folioDetenciones'];
  $codOficialDetiene= $_POST['codOficialDetiene'];
  $codOficialRecibe= $_POST['codOficialRecibe'];
- $numPlacaMoto= $_POST['numPlacaMoto'];
+ $identMoto= $_POST['identMoto'];
  $marcaMoto= $_POST['marcaMoto'];
  $colorMoto= $_POST['colorMoto'];
- $numMotorMoto= $_POST['numMotorMoto'];
- $numMarcoMoto= $_POST['numMarcoMoto'];
  $observMoto= $_POST['observMoto'];
  $numArticulo= $_POST['numArticulo'];
  $decripMot= $_POST['decripMot'];
@@ -26,7 +24,7 @@ $db= new Conexion();
 
   $query= mysqli_query($db,  "CALL sp_Registro_Detencion_Motocicleta('$numBoletaDetencion','$fecBoletaDetencion',
   '$numLlave', '$tomoDetencion','$folioDetenciones', '$codOficialDetiene', '$codOficialRecibe', '$delegacion' ,
-  '$numArticulo', '$decripMot', '$numPlacaMoto' , '$marcaMoto', '$numMotorMoto', '$numMarcoMoto', '$estado',
+  '$numArticulo', '$decripMot', '$identMoto' , '$marcaMoto', '$estado',
    '$observMoto', '$cedPersona', '$nomPersona', '$ape1Persona', '$ape2Persona', '$colorMoto')");
 
   $resultado= mysqli_fetch_assoc($query);
@@ -59,7 +57,7 @@ $db= new Conexion();
       $HTML=  '<div class="alert alert-dismissible alert-danger">
        <button type="button" class="close" data-dismiss="alert">x</button>
        <h4>ERROR</h4>
-        <p><strong>Ya existe una motocicleta con el número de placa ingresado...!</strong></p>
+        <p><strong>Ya existe un automóvil con el mismo numero de placa, vin motor u otro en estado activo ...!</strong></p>
         </div>';
 
 
