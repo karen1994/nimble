@@ -16,7 +16,6 @@ $Correo= $_POST ['Correo'];
 $FechaNac= $_POST ['FechaNac'];
 
 
-
 $query= mysqli_query($db,"call ModificarDatosPersonalOficial('$numConsecutivo','$Nombre','$PrimerApell','$SegundoApell',
 '$Cedula','$Edad','$Direccion','$Escolaridad','$NumeroTelefono','$Correo','$FechaNac')");
 
