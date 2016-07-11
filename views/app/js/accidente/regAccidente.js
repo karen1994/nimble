@@ -3,20 +3,20 @@ function regAccidente() {
     var connect, form, response, result, numBoleta, autJudicial, codInspector, fecAccidente, horAccidente,
   diaAccidente, provincia, canton, distrito, rutAccidente, km, senas, numImplicados, accCon, velocidad, obsAccidente; 
 
-  numBoleta=  __('numBoleta');
-  autJudicial= __('autJudicial');
+  numBoleta=    __('numBoleta');
+  autJudicial=  __('autJudicial');
   codInspector= __('codInspector');
   fecAccidente= __('fecAccidente');
   horAccidente= __('horAccidente');
   diaAccidente= __('diaAccidente');
-  provincia= __('provincia');
-  canton=   __('canton');
-  distrito= __('distrito');
+  provincia=  "Guanacaste";      // __('provincia');
+  canton=     "Santa Cruz";      // __('canton');
+  distrito=   "Santa Cruz";      // __('distrito');
   rutAccidente= __('rutAccidente');
-  km= __('km');
-  senas= __('senas');
-  numImplicados= __('numImplicados');
-  accCon= __('accCon');
+  km=           __('km');
+  senas=        __('senas');
+  numImplicados=__('numImplicados');
+  accCon=       __('accCon');
   velocidad=     __('velocidad');
   obsAccidente = __('obsAccidente');
     
@@ -100,7 +100,7 @@ if(autJudicial.value == ""){
       } else {
         __('_AJAX_ACCIDENTE_').innerHTML = connect.responseText; //Se muestran los errores
       }
-    } else if(connect.readyState != 4) {
+    } else if(connect.readyState !== 4) {
         //Muestra mensaje de procesamiento.
       result = '<div class="alert alert-dismissible alert-info">';
       result += '<button type="button" class="close" data-dismiss="alert">x</button>';
@@ -109,7 +109,7 @@ if(autJudicial.value == ""){
       result += '</div>';
       __('_AJAX_ACCIDENTE_').innerHTML = result;
     }
-  }
+  };
   connect.open('POST','ajax.php?mode=regAccidente',true); //Abre una conexión con ajax
   connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); //Mantiene los datos encriptados.
   connect.send(form);//Envia los datos a ajax
@@ -224,7 +224,7 @@ function validarFRM1(){
          alert("El campo observaciones es requerido");
         obsAccidente.focus();
           $("#observ").addClass('has-error');
-     }*/else if (provincia.value == ""){
+     }else if (provincia.value == ""){
          alert("Seleccione una opción en el campo Provincia");
         provincia.focus();
           $("#prov").addClass('has-error');
@@ -236,7 +236,7 @@ function validarFRM1(){
          alert("Seleccione una opción en el campo Distrito");
         distrito.focus();
           $("#dist").addClass('has-error');
-     }else{
+     }*/else{
          
            $("#secAccidente").hide();
            $("#secAccidente_II").show(); 

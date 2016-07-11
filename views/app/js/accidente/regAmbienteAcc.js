@@ -79,7 +79,7 @@ function regAmbiente(){
       result += '</div>';
       __('_AJAX_ACCIDENTE_').innerHTML = result;
     }
-  }
+  
   connect.open('POST','ajax.php?mode=regAmbiente',true); //Abre una conexión con ajax
   connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); //Mantiene los datos encriptados.
   connect.send(form);//Envia los datos a ajax
