@@ -9,9 +9,9 @@ function regAccidente() {
   fecAccidente= __('fecAccidente');
   horAccidente= __('horAccidente');
   diaAccidente= __('diaAccidente');
-  provincia=  "Guanacaste";      // __('provincia');
-  canton=     "Santa Cruz";      // __('canton');
-  distrito=   "Santa Cruz";      // __('distrito');
+  provincia=   __('provincia');
+  canton=      __('canton');
+  distrito=    __('distrito');
   rutAccidente= __('rutAccidente');
   km=           __('km');
   senas=        __('senas');
@@ -224,7 +224,7 @@ function validarFRM1(){
          alert("El campo observaciones es requerido");
         obsAccidente.focus();
           $("#observ").addClass('has-error');
-     }else if (provincia.value == ""){
+     }*/else if (provincia.value == ""){
          alert("Seleccione una opción en el campo Provincia");
         provincia.focus();
           $("#prov").addClass('has-error');
@@ -236,7 +236,7 @@ function validarFRM1(){
          alert("Seleccione una opción en el campo Distrito");
         distrito.focus();
           $("#dist").addClass('has-error');
-     }*/else{
+     }else{
          
            $("#secAccidente").hide();
            $("#secAccidente_II").show(); 

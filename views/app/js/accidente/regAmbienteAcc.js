@@ -1,50 +1,45 @@
 
-function validarFRM2(){
-    $("#btnGuadarDIV").show();
-}
-
-
 function regAmbiente(){
-    
+  alert("Hola");  
   var form, numBoleta,Iluminacion, estAmbiente, aliVertical, aliHorizontal, senVial, tipInterseccion, carriles,estEspecial, claCalzada,
   condCalzada, estCalzada ,exiDe, sentVia, tipAccidente, vehCirculacion, obsVia; 
   
-  estEspecial= __('estEspecial').value;
-  claCalzada= __('claCalza0').value;
-  numBoleta= __('numBoleta').value;
-  condCalzada= __('condCalzada').value;
-   estCalzada= __('estCalzada').value;
-   Iluminacion= __('Iluminacion').value;
-   estAmbiente= __('estAmbiente').value;
-   aliVertical= __('aliVertical').value;
-   aliHorizontal= __('aliHorizontal').value;
-   senVial= __('senVial').value;
-   tipInterseccion= __('tipInterseccion').value;
-   carriles= __('carriles').value;
-   exiDe= __('exiDe').value;
-   sentVia= __('sentVia').value;
-   tipAccidente= __('tipAccidente').value;
-   vehCirculacion= __('vehCirculacion').value;
-   obsVia= __('obsVia').value;
+  estEspecial= __('estEspecial');
+  claCalzada= __('claCalzada');
+  numBoleta= __('numBoleta');
+  condCalzada= __('condCalzada');
+   estCalzada= __('estCalzada');
+   Iluminacion= __('Iluminacion');
+   estAmbiente= __('estAmbiente');
+   aliVertical= __('aliVertical');
+   aliHorizontal= __('aliHorizontal');
+   senVial= __('senVial');
+   tipInterseccion= __('tipInterseccion');
+   carriles= __('carriles');
+   exiDe= __('exiDe');
+   sentVia= __('sentVia');
+   tipAccidente= __('tipAccidente');
+   vehCirculacion= __('vehCirculacion');
+   obsVia= __('obsVia');
    
-  form= 'estEspecial=' + estEspecial +
-      '&claCalzada=' + claCalzada +
-      '&numBoleta='+ numBoleta+
-     '&condCalzada=' + condCalzada +
-       '&estCalzada=' + estCalzada +
-       '&Iluminacion=' + Iluminacion +
-       '&estAmbiente=' + estAmbiente +
-       '&aliVertical=' + aliVertical +
-       '&aliHorizontal=' + aliHorizontal +
-       '&senVial=' + senVial +
-       '&tipInterseccion=' + tipInterseccion +
-       '&carriles=' + carriles +
-       '&exiDe=' + exiDe +
-       '&sentVia=' + sentVia +
-       '&tipAccidente=' + tipAccidente +
-       '&vehCirculacion=' + vehCirculacion  +
-       '&obsVia=' + obsVia ;
-       
+  form= 'estEspecial=' + estEspecial.value +
+      '&claCalzada=' + claCalzada.value +
+      '&numBoleta='+ numBoleta.value +
+     '&condCalzada=' + condCalzada.value +
+       '&estCalzada=' + estCalzada.value +
+       '&Iluminacion=' + Iluminacion.value +
+       '&estAmbiente=' + estAmbiente.value +
+       '&aliVertical=' + aliVertical.value +
+       '&aliHorizontal=' + aliHorizontal.value +
+       '&senVial=' + senVial.value +
+       '&tipInterseccion=' + tipInterseccion.value +
+       '&carriles=' + carriles.value +
+       '&exiDe=' + exiDe.value +
+       '&sentVia=' + sentVia.value +
+       '&tipAccidente=' + tipAccidente.value +
+       '&vehCirculacion=' + vehCirculacion.value  +
+       '&obsVia=' + obsVia.value ;
+       alert("hola2");
        connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); //Función que permite que se visualice en todos los  navegadoresconnect.onreadystatechange = function() {
       /*Estados del objeto connect:
       1= Esta desactivado.
@@ -78,6 +73,7 @@ function regAmbiente(){
       result += '<p><strong>Se esta ejecuntando la petición.</strong></p>';
       result += '</div>';
       __('_AJAX_ACCIDENTE_').innerHTML = result;
+     
     }
   
   connect.open('POST','ajax.php?mode=regAmbiente',true); //Abre una conexión con ajax
@@ -86,10 +82,66 @@ function regAmbiente(){
     
 }
 
+function validarFRM2(){
+    if(estEspecial.value === "0"){
+          //$("#1").removeClass('has-error');
+          $("#1").addClass('has-error');
+          estEspecial.focus();
+     }else if(claCalzada.value === "0"){
+          $("#2").addClass('has-error');
+          claCalzada.focus();
+     }else if(condCalzada.value === "0"){
+          $("#3").addClass('has-error');
+          condCalzada.focus();
+     }else if(estCalzada.value === "0"){
+          $("#4").addClass('has-error');
+          estCalzada.focus();
+     }else if(Iluminacion.value === "0"){
+          $("#5").addClass('has-error');
+          Iluminacion.focus();
+     }else if(estAmbiente.value === "0"){
+          $("#6").addClass('has-error');
+         estAmbiente.focus();
+     }else if(aliVertical.value === "0"){
+          $("#7").addClass('has-error');
+          aliVertical.focus();
+     }else if(aliHorizontal.value === "0"){
+          $("#8").addClass('has-error');
+          aliHorizontal.focus();
+     }else if(senVial.value === "0"){
+          $("#9").addClass('has-error');
+          senVial.focus();
+     }else if(tipInterseccion.value === "0"){
+          $("#10").addClass('has-error');
+          tipInterseccion.focus();
+     }else if(carriles.value === "0"){
+          $("#11").addClass('has-error');
+          carriles.focus();
+     }else if(exiDe.value === "0"){
+          $("#12").addClass('has-error');
+          exiDe.focus();
+     }else if(sentVia.value === "0"){
+          $("#13").addClass('has-error');
+         sentVia.focus();
+     }else if(tipAccidente.value === "0"){
+          $("#14").addClass('has-error');
+          tipAccidente.focus();
+     }else if(vehCirculacion.value === "0"){
+          $("#15").addClass('has-error');
+          vehCirculacion.focus();
+     }else if(obsVia.value === "0"){
+          $("#16").addClass('has-error');
+          obsVia.focus();
+     }else{
+         $("#btnGuadarDIV").show();
+     }
+       
+}
+
 function datosCorrectos(){
     
-     if(estEspecial.value != 0){
-          //$("#1").removeClass('has-error');
+     if(estEspecial.value !== "0"){
+          $("#1").removeClass('has-error');
           $("#1").addClass('has-success');
      } if (claCalzada.value != 0){
          $("#2").removeClass('has-error');
