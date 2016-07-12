@@ -10,7 +10,7 @@ INNER JOIN implicados ON autoridadjudicial.`numBoletaAccidente` = implicados.`nu
 INNER JOIN `ruta` ON implicados.`numBoletaAccidente` = ruta.`numBoletaAccidente` INNER JOIN `delegacion` ON accidente.`idDelegacion` = delegacion.`IDdelegacion`
 INNER JOIN `provincia` ON ubicacion.`idProvincia` = provincia.`idProvincia`
 INNER JOIN `canton` ON ubicacion.`idCanton` = canton.`idCanton` INNER JOIN `distrito` ON 
-ubicacion.`idDistrito` = distrito.`idDistrito`   "); /*Consulta los datos del accidente*/
+ubicacion.`idDistrito` = distrito.`idDistrito`"); /*Consulta los datos del accidente*/
 
 if(isset($_SESSION['app_id'])){
     $usuario= $users[$_SESSION['app_id']]['tipoUsuario'];
