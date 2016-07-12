@@ -3,7 +3,8 @@
   $db  = new Conexion();
 
 $user_id=null;
-$sql = $db->query("SELECT *FROM accidente INNER JOIN `ubicacion` ON accidente.`idUbicación` = `ubicacion`.`idUbicacion` 
+
+$sql = $db->query("SELECT *FROM accidente INNER JOIN `ubicacion` ON accidente.`idUbicación` = `ubicacion`.`idUbicacion`
 INNER JOIN `inspector` ON accidente.`numBoletaAccidente` = inspector.`numBoletaAccidente`
 INNER JOIN `autoridadjudicial` ON inspector.`numBoletaAccidente` = autoridadjudicial.`numBoletaAccidente`
 INNER JOIN implicados ON autoridadjudicial.`numBoletaAccidente` = implicados.`numBoletaAccidente`
@@ -11,6 +12,8 @@ INNER JOIN `ruta` ON implicados.`numBoletaAccidente` = ruta.`numBoletaAccidente`
 INNER JOIN `provincia` ON ubicacion.`idProvincia` = provincia.`idProvincia`
 INNER JOIN `canton` ON ubicacion.`idCanton` = canton.`idCanton` INNER JOIN `distrito` ON 
 ubicacion.`idDistrito` = distrito.`idDistrito`"); /*Consulta los datos del accidente*/
+
+
 
 if(isset($_SESSION['app_id'])){
     $usuario= $users[$_SESSION['app_id']]['tipoUsuario'];
@@ -33,8 +36,8 @@ if(isset($_SESSION['app_id'])){
 	<th>Canton</th>
 	<th>Distrito</th>
 	<th>Observaciones</th>
-      
-        
+
+
         <!--
   <th>Estructura Especial</th>
   <th>Clase de calzada</th>
@@ -54,12 +57,12 @@ if(isset($_SESSION['app_id'])){
   <th>Obstaculos en la vía</th>
   <th>Velocidad de la carretera</th>
         -->
- 
+
  <?php if($usuario == 0 || $usuario == 1 ){ ?>
          <th></th>
-<?php } ?> 
+<?php } ?>
 
- 
+
   <th></th>
   <th></th>
   <th></th>
@@ -78,35 +81,35 @@ if(isset($_SESSION['app_id'])){
   <td><?php echo $r["nomDistrito"]; ?></td>
   <td><?php echo $r["observ"]; ?></td>
 
-<?php 
+<?php
     if($usuario == 0 || $usuario == 1 ){
-    ?> 
-       
+    ?>
+
         <td style="width:150px;"> <!-- Inicia columnas de botones -->
 		<!-- Botón de editar -->
 		<a href="?view=editarAccidente&&id=<?php echo $r['idAccidente'];?>"  class="btn btn-sm btn-warning">Editar Accidente</a> <!--Incluye el documento editar.php-->
-		<!-- Botón de eliminar -->	
+		<!-- Botón de eliminar -->
 	</td> <!-- Fin de columnas de botones -->
-	<?php  
+	<?php
   } //FIN
 
 ?>
 	<td style="width:150px;"> <!-- Inicia columnas de botones -->
 		<!-- Botón de editar -->
 		<a href="?view=verAmbiente&&id=<?php echo $r['numBoletaAccidente'];?>"  class="btn btn-sm btn-success">Ver Ambiente</a> <!--Incluye el documento editar.php-->
-		<!-- Botón de eliminar -->	
+		<!-- Botón de eliminar -->
 	</td> <!-- Fin de columnas de botones -->
         <td style="width:150px;"> <!-- Inicia columnas de botones -->
 		<!-- Botón de editar -->
 		<a href="?view=editarRuta&&id=<?php echo $r['idAccidente'];?>" value="hola" class="btn btn-sm btn-success">Ver Ruta</a> <!--Incluye el documento editar.php-->
-		<!-- Botón de eliminar -->	
+		<!-- Botón de eliminar -->
 	</td> <!-- Fin de columnas de botones -->
         <td style="width:150px;"> <!-- Inicia columnas de botones -->
 		<!-- Botón de editar -->
 		<a href="?view=editarImplicados&&id=<?php echo $r['idAccidente'];?>" value="hola" class="btn btn-sm btn-success">Ver Implicados</a> <!--Incluye el documento editar.php-->
-		<!-- Botón de eliminar -->	
+		<!-- Botón de eliminar -->
 	</td> <!-- Fin de columnas de botones -->
-      
+
 </tr>
 <?php endwhile;?>
 </table> <!--Fin de tabla-->
