@@ -61,7 +61,7 @@ if($query->num_rows >0){
   </div>
 
   <div class="form-group">
-   <label for="placaSalMoto" class="control-label col-md-4">Número de placa</label>
+   <label for="placaSalMoto" class="control-label col-md-4">Placa, motor, marco u otro</label>
      <div class="col-md-5">
    <input class="form-control" id="placaSalMoto" type="text" maxlength="12" disabled="" value="<?php echo $Consecutivo->numPlacaMoto;?>">
      </div>

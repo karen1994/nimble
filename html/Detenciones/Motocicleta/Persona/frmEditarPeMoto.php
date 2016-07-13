@@ -58,32 +58,32 @@ if($query->num_rows >0){
                </div>
         </div>
 
-       <div class="form-group">
-         <label for="cedPersona" class="control-label col-md-4">Número de cédula</label>
+       <div class="form-group" id="identPe">
+         <label for="cedPersona" class="control-label col-md-4">Identificación</label>
             <div class="col-md-5">
-        <input class="form-control" id="cedPersona" type="text" maxlength="20" placeholder="" disabled="" value="<?php echo $Consecutivo->cedPersona;?>" >
+        <input class="form-control" onfocus="return datosCorrectos()" id="cedPersona" type="text" maxlength="20" placeholder="" disabled="" value="<?php echo $Consecutivo->cedPersona;?>" >
             </div>
        </div>
 
-        <div class="form-group">
+        <div class="form-group" id="nomPe">
           <label for="nomPersona" class="control-label col-md-4">Nombre</label>
             <div class="col-md-5">
-          <input class="form-control" id="nomPersona" type="text" maxlength="50" placeholder="" disabled="" value="<?php echo $Consecutivo->nomPersona;?>">
+          <input class="form-control" onfocus="return datosCorrectos()" id="nomPersona" type="text" maxlength="50" placeholder="" disabled="" value="<?php echo $Consecutivo->nomPersona;?>">
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="ape1Pe">
           <label for="ape1" class="control-label col-md-4">Primer apellido</label>
               <div class="col-md-5">
-          <input class="form-control" id="ape1" type="text" maxlength="50" placeholder="" disabled="" value="<?php echo $Consecutivo->ape1Persona;?>">
+          <input class="form-control" onfocus="return datosCorrectos()" id="ape1" type="text" maxlength="50" placeholder="" disabled="" value="<?php echo $Consecutivo->ape1Persona;?>">
               </div>
         </div>
 
 
-   <div class="form-group ">
+   <div class="form-group" id="ape2Pe">
         <label for="ape2" class="control-label col-md-4">Segundo apellido</label>
           <div class="col-md-5">
-        <input class="form-control" id="ape2" type="text" maxlength="50" placeholder="" disabled="" value="<?php echo $Consecutivo->ape2Persona;?>">
+        <input class="form-control" onfocus="return datosCorrectos()" id="ape2" type="text" maxlength="50" placeholder="" disabled="" value="<?php echo $Consecutivo->ape2Persona;?>">
           </div>
    </div>
 

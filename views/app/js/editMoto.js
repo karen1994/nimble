@@ -1,33 +1,49 @@
 function editarMoto() {
-  var connect, form, response, result, numConsecutivo, numConsecutivoD, numBoletaMoto,
-  numPlacaMoto, llaveMoto, marcaMoto, colorMoto, motorMoto, marcoMoto, obsMoto;
+  var connect, form, response, result, numConsecutivo, numConsecutivoD, estado,
+  numBoletaMoto, identMoto, llaveMoto, marcaMoto, colorMoto, obsMoto;
 
 // Parametros capturados del formulario
 
-  numConsecutivo= __('numConsecutivo').value;
-  numConsecutivoD= __('numConsecutivoD').value;
-  numBoletaMoto= __('numBoletaMoto').value;
-  numPlacaMoto= __('numPlacaMoto').value;
-  llaveMoto= __('llaveMoto').value;
-  marcaMoto= __('marcaMoto').value;
-  colorMoto= __('colorMoto').value;
-  motorMoto= __('motorMoto').value;
-  marcoMoto= __('marcoMoto').value;
-  obsMoto= __('obsMoto').value;
+  numConsecutivo= __('numConsecutivo');
+  numConsecutivoD= __('numConsecutivoD');
+  estado= __('estado');
+  numBoletaMoto= __('numBoletaMoto');
+  identMoto= __('identMoto');
+  llaveMoto= __('llaveMoto');
+  marcaMoto= __('marcaMoto');
+  colorMoto= __('colorMoto');
+  obsMoto= __('obsMoto');
 
 
   //************** Se abre la conexion, si todo esta bien
-      form ='numConsecutivo=' + numConsecutivo +
-      '&numConsecutivoD=' + numConsecutivoD +
-      '&numBoletaMoto=' + numBoletaMoto +
-      '&numPlacaMoto=' + numPlacaMoto +
-      '&llaveMoto=' + llaveMoto +
-      '&marcaMoto=' + marcaMoto +
-      '&colorMoto=' + colorMoto +
-      '&motorMoto=' + motorMoto +
-      '&marcoMoto=' + marcoMoto +
-      '&obsMoto=' + obsMoto;
+      form ='numConsecutivo=' + numConsecutivo.value +
+      '&numConsecutivoD=' + numConsecutivoD.value +
+      '&estado=' + estado.value +
+      '&numBoletaMoto=' + numBoletaMoto.value +
+      '&identMoto=' + identMoto.value +
+      '&llaveMoto=' + llaveMoto.value +
+      '&marcaMoto=' + marcaMoto.value +
+      '&colorMoto=' + colorMoto.value +
+      '&obsMoto=' + obsMoto.value;
 
+      if(identMoto.value == ""){
+              alert("El campo placa, motor, marco u otro es requerido");
+              identMoto.focus();
+              $("#IdMoto").addClass('has-error');
+           }else if (llaveMoto.value == ""){
+               alert("El campo número de llave es requerido");
+            llaveMoto.focus();
+                $("#llave").addClass('has-error');
+         }else if (marcaMoto.value == ""){
+               alert("El campo marca es requerido");
+            marcaMoto.focus();
+                $("#marca").addClass('has-error');
+         }else if (colorMoto.value == ""){
+             alert("El campo color es requerido");
+          colorMoto.focus();
+              $("#color").addClass('has-error');
+       }
+      else{
 
   connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); //Función que permite que se visualice en todos los  navegadores
   connect.onreadystatechange = function() {
@@ -62,19 +78,39 @@ function editarMoto() {
   connect.open('POST','ajax.php?mode=editarMoto',true); //Abre una conexión con ajax
   connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); //Mantiene los datos encriptados.
   connect.send(form); //Envia los datos a ajax
+}
+}
+
+function datosCorrectos(){
+     if (identMoto.value != ""){
+             $("#IdMoto").removeClass('has-error');
+              $("#IdMoto").addClass('has-success');
+     }
+     if (llaveMoto.value != ""){
+             $("#llave").removeClass('has-error');
+              $("#llave").addClass('has-success');
+     }
+     if (marcaMoto.value != ""){
+             $("#marca").removeClass('has-error');
+              $("#marca").addClass('has-success');
+     }
+     if (colorMoto.value != ""){
+             $("#color").removeClass('has-error');
+              $("#color").addClass('has-success');
+     }
+     if (obsMoto.value != ""){
+             $("#observacion").removeClass('has-error');
+              $("#observacion").addClass('has-success');
+     }
 
 }
 
-
-
 function mostrar(){
 
-__('numPlacaMoto').disabled=false;
+__('identMoto').disabled=false;
 __('llaveMoto').disabled=false;
 __('marcaMoto').disabled=false;
 __('colorMoto').disabled=false;
-__('motorMoto').disabled=false;
-__('marcoMoto').disabled=false;
 __('obsMoto').disabled=false;
 $("#btnGuardarMoto").show();
 

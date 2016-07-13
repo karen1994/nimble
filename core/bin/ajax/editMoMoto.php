@@ -10,7 +10,7 @@ $desMotivo= $_POST['desMotivo'];
 
 
 //************************************
-$query= mysqli_query($db," CALL sp_editarMoMatricula('$numConsecutivo','$numArticulo','$desMotivo')");
+$query= mysqli_query($db," CALL sp_editar_Motivo('$numConsecutivo','$numArticulo','$desMotivo')");
 
 $resultado= mysqli_fetch_assoc($query);
 

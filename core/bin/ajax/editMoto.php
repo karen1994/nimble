@@ -5,21 +5,18 @@ $db= new Conexion();
 $numConsecutivo= $_POST['numConsecutivo'];
 $numConsecutivoD= $_POST['numConsecutivoD'];
 $numBoletaMoto= $_POST['numBoletaMoto'];
-$numPlacaMoto= $_POST['numPlacaMoto'];
+$identMoto= $_POST['identMoto'];
 $llaveMoto= $_POST['llaveMoto'];
 $marcaMoto= $_POST['marcaMoto'];
 $colorMoto= $_POST['colorMoto'];
-$motorMoto= $_POST['motorMoto'];
-$marcoMoto= $_POST['marcoMoto'];
 $obsMoto= $_POST['obsMoto'];
-$estado=1;
+$estado= $_POST['estado'];;
 
 
 
 //************************************
-$query= mysqli_query($db,"call sp_editarMotocicleta('$numConsecutivo','$numConsecutivoD',
-'$numBoletaMoto', '$llaveMoto','$numPlacaMoto','$marcaMoto','$colorMoto', '$motorMoto',
-'$marcoMoto', '$estado', '$obsMoto')");
+$query= mysqli_query($db,"call sp_editar_Motocicleta('$numConsecutivo','$numConsecutivoD',
+'$numBoletaMoto', '$llaveMoto','$identMoto','$marcaMoto','$colorMoto', '$estado', '$obsMoto')");
 
 $resultado= mysqli_fetch_assoc($query);
 

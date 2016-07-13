@@ -6,7 +6,7 @@ $numConsecutivo= $_POST['numConsecutivo'];
 $numConsecutivoM= $_POST['numConsecutivoM'];
 $numBoletaDetencion= $_POST['numBoletaDetencion'];
 $fecBoletaDetencion= $_POST['fecBoletaDetencion'];
-$numPlacaMoto= $_POST['numPlacaMoto'];
+$identMoto= $_POST['identMoto'];
 $tomEntDetencion= $_POST['tomEntDetencion'];
 $folEntDetencion= $_POST['folEntDetencion'];
 $ofiDetMoto= $_POST['ofiDetMoto'];
@@ -17,7 +17,7 @@ $estado=1;
 
 //************************************
 $query= mysqli_query($db,"call sp_Editar_Detencion_Motocicleta('$numConsecutivo',
-'$numConsecutivoM', '$numPlacaMoto','$numBoletaDetencion','$fecBoletaDetencion','$tomEntDetencion',
+'$numConsecutivoM', '$identMoto','$numBoletaDetencion','$fecBoletaDetencion','$tomEntDetencion',
 '$folEntDetencion','$ofiDetMoto','$ofiRecMoto', '$estado')");
 
 $resultado= mysqli_fetch_assoc($query);

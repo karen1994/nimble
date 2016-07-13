@@ -2,16 +2,26 @@ function editarMotivoMoto() {
   var connect, form, response, result, numConsecutivo, numArticulo, desMotivo;
 
 // Parametros capturados del formulario
-  numConsecutivo= __('numConsecutivo').value;
-  numArticulo= __('numArticulo').value;
-  desMotivo= __('desMotivo').value;
+  numConsecutivo= __('numConsecutivo');
+  numArticulo= __('numArticulo');
+  desMotivo= __('desMotivo');
 
 
   //************** Se abre la conexion, si todo esta bien
-      form ='numConsecutivo=' + numConsecutivo +
-      '&numArticulo=' + numArticulo +
-      '&desMotivo=' + desMotivo;
+      form ='numConsecutivo=' + numConsecutivo.value +
+      '&numArticulo=' + numArticulo.value +
+      '&desMotivo=' + desMotivo.value;
 
+      if(numArticulo.value == ""){
+              alert("El campo número de artículo es requerido");
+              numArticulo.focus();
+              $("#articulo").addClass('has-error');
+           }else if (desMotivo.value == ""){
+               alert("El campo motivo de la detención es requerido");
+            desMotivo.focus();
+                $("#motivo").addClass('has-error');
+         }
+         else{
 
   connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); //Función que permite que se visualice en todos los  navegadores
   connect.onreadystatechange = function() {
@@ -46,7 +56,18 @@ function editarMotivoMoto() {
   connect.open('POST','ajax.php?mode=editMoMoto',true); //Abre una conexión con ajax
   connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); //Mantiene los datos encriptados.
   connect.send(form); //Envia los datos a ajax
+}
+}
 
+function datosCorrectos(){
+     if (numArticulo.value != ""){
+             $("#articulo").removeClass('has-error');
+              $("#articulo").addClass('has-success');
+     }
+     if (desMotivo.value != ""){
+             $("#motivo").removeClass('has-error');
+              $("#motivo").addClass('has-success');
+     }
 }
 
 function mostrar(){

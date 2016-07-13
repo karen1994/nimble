@@ -56,59 +56,52 @@ if($query->num_rows >0){
           </div>
    </div>
 
+   <div class="form-group" style="display:none;">
+        <label for="estado" class="control-label col-md-4">Estado</label>
+          <div class="col-md-5">
+        <input class="form-control" id="estado" type="text" disabled="" value="<?php echo $Consecutivo->estadoMoto;?>">
+          </div>
+   </div>
+
    <div class="form-group">
         <label for="numBoletaMoto" class="control-label col-md-4">Número de boleta</label>
           <div class="col-md-5">
-        <input class="form-control" id="numBoletaMoto" type="text" maxlength="15" disabled=""   value="<?php echo $Consecutivo->numBoletaDetencion;?>">
+        <input class="form-control" id="numBoletaMoto" type="text" maxlength="12" disabled=""   value="<?php echo $Consecutivo->numBoletaDetencion;?>">
           </div>
   </div>
 
-  <div class="form-group">
-       <label for="numPlacaMoto" class="control-label col-md-4">Número de placa</label>
+  <div class="form-group" id="IdMoto">
+       <label for="identMoto" class="control-label col-md-4">Placa, motor, marco u otro</label>
          <div class="col-md-5">
-       <input class="form-control" id="numPlacaMoto" type="text" maxlength="12" disabled="" value="<?php echo $Consecutivo->numPlacaMoto;?>">
+       <input class="form-control" onfocus="return datosCorrectos()" id="identMoto" type="text" maxlength="25" disabled="" value="<?php echo $Consecutivo->identMoto;?>">
          </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="llave">
      <label for="llaveMoto" class="control-label col-md-4">Número de llave</label>
        <div class="col-md-5">
-     <input class="form-control" id="llaveMoto" type="text" disabled="" value="<?php echo $Consecutivo->numLlave;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="llaveMoto" maxlength="4" type="text" disabled="" value="<?php echo $Consecutivo->numLlave;?>">
        </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="marca">
        <label for="marcaMoto" class="control-label col-md-4">Marca</label>
          <div class="col-md-5">
-       <input class="form-control" id="marcaMoto" type="text" maxlength="25"  disabled="" value="<?php echo $Consecutivo->marcaMoto;?>">
+       <input class="form-control" onfocus="return datosCorrectos()" id="marcaMoto" type="text" maxlength="25"  disabled="" value="<?php echo $Consecutivo->marcaMoto;?>">
          </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="color">
      <label for="colorMoto" class="control-label col-md-4">Color</label>
        <div class="col-md-5">
-     <input class="form-control" id="colorMoto" type="text" disabled=""  value="<?php echo $Consecutivo->colorMoto;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="colorMoto"  maxlength="15" type="text" disabled=""  value="<?php echo $Consecutivo->colorMoto;?>">
        </div>
   </div>
 
-  <div class="form-group">
-     <label for="motorMoto" class="control-label col-md-4">Número de motor</label>
-       <div class="col-md-5">
-     <input class="form-control" id="motorMoto" type="text" disabled="" value="<?php echo $Consecutivo->numMotorMoto;?>">
-       </div>
-  </div>
-
-  <div class="form-group">
-     <label for="marcoMoto" class="control-label col-md-4">Número de marco</label>
-       <div class="col-md-5">
-     <input class="form-control" id="marcoMoto" type="text" disabled="" value="<?php echo $Consecutivo->numMarcoMoto;?>">
-       </div>
-  </div>
-
-  <div class="form-group">
+  <div class="form-group" id="observacion">
   <label for="obsMoto" class="control-label col-md-4">Observaciones</label>
      <div class="col-md-5">
-     <textarea id="obsMoto" rows="8" cols="40"  maxlength="100" placeholder="Escriba la observación del automóvil" disabled=""><?php echo $Consecutivo->observMoto;?></textarea>
+     <textarea onfocus="return datosCorrectos()" id="obsMoto" rows="8" cols="40"  maxlength="100" placeholder="Escriba la observación del automóvil" disabled=""><?php echo $Consecutivo->observMoto;?></textarea>
        </div>
   </div>
 
