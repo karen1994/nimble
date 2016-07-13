@@ -87,7 +87,7 @@ if(isset($_SESSION['app_id'])){
 
         <td style="width:150px;"> <!-- Inicia columnas de botones -->
 		<!-- Botón de editar -->
-		<a href="?view=editarAccidente&&id=<?php echo $r['idAccidente'];?>"  class="btn btn-sm btn-warning">Editar Accidente</a> <!--Incluye el documento editar.php-->
+		<a href="?view=editarAccidente&&id=<?php echo $r['numBoletaAccidente'];?>"  class="btn btn-sm btn-warning">Editar Accidente</a> <!--Incluye el documento editar.php-->
 		<!-- Botón de eliminar -->
 	</td> <!-- Fin de columnas de botones -->
 	<?php
@@ -101,12 +101,12 @@ if(isset($_SESSION['app_id'])){
 	</td> <!-- Fin de columnas de botones -->
         <td style="width:150px;"> <!-- Inicia columnas de botones -->
 		<!-- Botón de editar -->
-		<a href="?view=editarRuta&&id=<?php echo $r['idAccidente'];?>" value="hola" class="btn btn-sm btn-success">Ver Ruta</a> <!--Incluye el documento editar.php-->
+		<a href="?view=editarRuta&&id=<?php echo $r['numBoletaAccidente'];?>" value="hola" class="btn btn-sm btn-success">Ver Ruta</a> <!--Incluye el documento editar.php-->
 		<!-- Botón de eliminar -->
 	</td> <!-- Fin de columnas de botones -->
         <td style="width:150px;"> <!-- Inicia columnas de botones -->
 		<!-- Botón de editar -->
-		<a href="?view=editarImplicados&&id=<?php echo $r['idAccidente'];?>" value="hola" class="btn btn-sm btn-success">Ver Implicados</a> <!--Incluye el documento editar.php-->
+		<a href="?view=editarImplicados&&id=<?php echo $r['numBoletaAccidente'];?>" value="hola" class="btn btn-sm btn-success">Ver Implicados</a> <!--Incluye el documento editar.php-->
 		<!-- Botón de eliminar -->
 	</td> <!-- Fin de columnas de botones -->
 

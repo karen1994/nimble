@@ -39,19 +39,18 @@ $db = new Conexion();
 
 $fecInicio = $_GET['id'];
 $fecFinal = $_GET['id2'];
-          
     
 
 
 
 $sql= $db->query("SELECT *FROM accidente INNER JOIN `ubicacion` ON accidente.`idUbicación` = `ubicacion`.`idUbicacion` 
-INNER JOIN `inspector` ON accidente.`idAccidente` = inspector.`idAccidente`
-INNER JOIN `autoridadjudicial` ON inspector.`idAccidente` = autoridadjudicial.`idAccidente`
-INNER JOIN implicados ON autoridadjudicial.`idAccidente`= implicados.`idAccidente`
-INNER JOIN `ruta` ON implicados.`idAccidente` = ruta.`idAccidente` INNER JOIN `delegacion` ON accidente.`idDelegacion` = delegacion.`IDdelegacion`
+INNER JOIN `inspector` ON accidente.`numBoletaAccidente` = inspector.`numBoletaAccidente`
+INNER JOIN `autoridadjudicial` ON inspector.`numBoletaAccidente` = autoridadjudicial.`numBoletaAccidente`
+INNER JOIN implicados ON autoridadjudicial.`numBoletaAccidente` = implicados.`numBoletaAccidente`
+INNER JOIN `ruta` ON implicados.`numBoletaAccidente` = ruta.`numBoletaAccidente` INNER JOIN `delegacion` ON accidente.`idDelegacion` = delegacion.`IDdelegacion`
 INNER JOIN `provincia` ON ubicacion.`idProvincia` = provincia.`idProvincia`
 INNER JOIN `canton` ON ubicacion.`idCanton` = canton.`idCanton` INNER JOIN `distrito` ON 
-ubicacion.`idDistrito` = distrito.`idDistrito`  WHERE `fecAccidente` BETWEEN '$fecInicio' AND '$fecFinal' ");
+ubicacion.`idDistrito` = distrito.`idDistrito`   WHERE `fecAccidente` BETWEEN '$fecInicio' AND '$fecFinal' ");
 
 ?>
 

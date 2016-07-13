@@ -21,7 +21,7 @@ $accidente_id= $_GET['id'];
 /*Realiza la consulta por el id en la base de datos*/
 
 
-$sql ="SELECT *FROM `implicados` WHERE `idAccidente`= ".$accidente_id;
+$sql ="SELECT *FROM `implicados` WHERE numBoletaAccidente= ".$accidente_id;
 
 
 $query = mysqli_query($db, $sql);

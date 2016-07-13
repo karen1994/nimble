@@ -40,7 +40,8 @@ function regAmbiente(){
        '&vehCirculacion=' + vehCirculacion.value  +
        '&obsVia=' + obsVia.value ;
        alert("hola2");
-       connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); //Función que permite que se visualice en todos los  navegadoresconnect.onreadystatechange = function() {
+       connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); //Función que permite que se visualice en todos los  navegadores
+	connect.onreadystatechange = function() {
       /*Estados del objeto connect:
       1= Esta desactivado.
       2= Esta enviando los datos desde cero.
@@ -74,7 +75,8 @@ function regAmbiente(){
       result += '</div>';
       __('_AJAX_ACCIDENTE_').innerHTML = result;
      
-    }
+       }
+	};
   
   connect.open('POST','ajax.php?mode=regAmbiente',true); //Abre una conexión con ajax
   connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); //Mantiene los datos encriptados.
