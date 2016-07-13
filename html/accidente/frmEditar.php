@@ -7,13 +7,13 @@ $accidente_id= $_GET['id'];
 
 
 $sql = "SELECT *FROM accidente INNER JOIN `ubicacion` ON accidente.`idUbicación` = `ubicacion`.`idUbicacion` 
-INNER JOIN `inspector` ON accidente.`idAccidente` = inspector.`idAccidente`
-INNER JOIN `autoridadjudicial` ON inspector.`idAccidente` = autoridadjudicial.`idAccidente`
-INNER JOIN implicados ON autoridadjudicial.`idAccidente`= implicados.`idAccidente`
-INNER JOIN `ruta` ON implicados.`idAccidente` = ruta.`idAccidente` INNER JOIN `delegacion` ON accidente.`idDelegacion` = delegacion.`IDdelegacion`
+INNER JOIN `inspector` ON accidente.`numBoletaAccidente` = inspector.`numBoletaAccidente`
+INNER JOIN `autoridadjudicial` ON inspector.`numBoletaAccidente` = autoridadjudicial.`numBoletaAccidente`
+INNER JOIN implicados ON autoridadjudicial.`numBoletaAccidente` = implicados.`numBoletaAccidente`
+INNER JOIN `ruta` ON implicados.`numBoletaAccidente` = ruta.`numBoletaAccidente` INNER JOIN `delegacion` ON accidente.`idDelegacion` = delegacion.`IDdelegacion`
 INNER JOIN `provincia` ON ubicacion.`idProvincia` = provincia.`idProvincia`
 INNER JOIN `canton` ON ubicacion.`idCanton` = canton.`idCanton` INNER JOIN `distrito` ON 
-ubicacion.`idDistrito` = distrito.`idDistrito`  WHERE accidente.`idAccidente` = ".$accidente_id;
+ubicacion.`idDistrito` = distrito.`idDistrito`   WHERE accidente.numBoletaAccidente = ".$accidente_id;
 
 
 $query = $db->query($sql);
