@@ -54,7 +54,7 @@ if($query->num_rows >0){
  <div class="form-group">
       <label for="numBoletaMatricula" class="control-label col-md-4">Número de boleta</label>
         <div class="col-md-5">
-      <input class="form-control" id="numBoletaMatricula" type="text" maxlength="15" disabled=""   value="<?php echo $Consecutivo->numBoletaDetencion;?>">
+      <input class="form-control" id="numBoletaMatricula" type="text" maxlength="12" disabled=""   value="<?php echo $Consecutivo->numBoletaDetencion;?>">
         </div>
  </div>
 
@@ -68,7 +68,7 @@ if($query->num_rows >0){
  <div class="form-group" id="motivo">
  <label for="desMotivo" class="control-label col-md-4">Motivo de la detención</label>
  <div class="col-md-5">
- <textarea onfocus="return datosCorrectos()" id="desMotivo" rows="8" cols="40" placeholder="Escribe el motivo de la detención"  maxlength="100" disabled=""><?php echo $Consecutivo->descripMotivo;?></textarea>
+ <textarea onfocus="return datosCorrectos()" id="desMotivo" rows="8" cols="40" placeholder="Escribe el motivo de la detención" maxlength="100" disabled=""><?php echo $Consecutivo->descripMotivo;?></textarea>
    </div>
  </div>
 

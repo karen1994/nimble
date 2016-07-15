@@ -4,7 +4,7 @@ $db= new Conexion();
 //Datos de la salida *********
  $numConsecutivo= $_POST['numConsecutivo'];
  $numConsecutivoDet= $_POST['numConsecutivoDet'];
- $placaSalMoto= $_POST['placaSalMoto'];
+ $identMoto= $_POST['identMoto'];
  $autoridadSalMoto= $_POST['autoridadSalMoto'];
  $oficEntSalMoto= $_POST['oficEntSalMoto'];
  $fecSalMoto= $_POST['fecSalMoto'];
@@ -18,9 +18,9 @@ $db= new Conexion();
  $estado=0;
 
 //************************************
-$query= mysqli_query($db," CALL sp_SalidaDetencion_Motocicleta('$cedPersona', '$nomPersona',
+$query= mysqli_query($db," CALL sp_Salida_Detencion_Motocicleta('$cedPersona', '$nomPersona',
 '$ape1Persona', '$ape2Persona','$autoridadSalMoto','$oficEntSalMoto', '$fecSalMoto',
-'$oficioSalMoto', '$tomoSalMoto', '$folioSalMoto', '$placaSalMoto', '$estado',
+'$oficioSalMoto', '$tomoSalMoto', '$folioSalMoto', '$identMoto', '$estado',
 '$numConsecutivo', '$numConsecutivoDet')");
 
 $resultado= mysqli_fetch_assoc($query);

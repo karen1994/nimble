@@ -54,14 +54,14 @@ if($query->num_rows >0){
   <div class="form-group">
      <label for="bolSalMatricula" class="control-label col-md-4">Número de boleta</label>
        <div class="col-md-5">
-     <input class="form-control" id="bolSalAuto" type="text" maxlength="15" placeholder="" disabled="" value="<?php echo $Consecutivo->numBoletaDetencion;?>">
+     <input class="form-control" id="bolSalAuto" type="text" placeholder="" disabled="" value="<?php echo $Consecutivo->numBoletaDetencion;?>">
        </div>
   </div>
 
   <div class="form-group">
    <label for="identAuto" class="control-label col-md-4">Placa, vin, motor u otro</label>
      <div class="col-md-5">
-   <input class="form-control" id="identAuto" type="text" maxlength="25" disabled="" value="<?php echo $Consecutivo->identAuto;?>">
+   <input class="form-control" id="identAuto" type="text" disabled="" value="<?php echo $Consecutivo->identAuto;?>">
      </div>
   </div>
 

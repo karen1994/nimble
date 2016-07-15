@@ -67,7 +67,7 @@ if($query->num_rows >0){
    <div class="form-group">
         <label for="numBoletaAuto" class="control-label col-md-4">Número de boleta</label>
           <div class="col-md-5">
-        <input class="form-control" id="numBoletaAuto" type="text" maxlength="15" disabled=""   value="<?php echo $Consecutivo->numBoletaDetencion;?>">
+        <input class="form-control" id="numBoletaAuto" type="text" maxlength="15" disabled="" value="<?php echo $Consecutivo->numBoletaDetencion;?>">
           </div>
   </div>
 
@@ -81,28 +81,28 @@ if($query->num_rows >0){
   <div class="form-group" id="llave">
      <label for="llaveAuto" class="control-label col-md-4">Número de llave</label>
        <div class="col-md-5">
-     <input class="form-control" onfocus="return datosCorrectos()" id="llaveAuto" type="text" disabled="" value="<?php echo $Consecutivo->numLlave;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="llaveAuto" type="text" maxlength="4" disabled="" value="<?php echo $Consecutivo->numLlave;?>">
        </div>
   </div>
 
   <div class="form-group" id="marca">
        <label for="marcaAuto" class="control-label col-md-4">Marca</label>
          <div class="col-md-5">
-       <input class="form-control" onfocus="return datosCorrectos()" id="marcaAuto" type="text" maxlength="25"  disabled="" value="<?php echo $Consecutivo->marcaAuto;?>">
+       <input class="form-control" onfocus="return datosCorrectos()" id="marcaAuto" type="text" maxlength="25" disabled="" value="<?php echo $Consecutivo->marcaAuto;?>">
          </div>
   </div>
 
   <div class="form-group" id="color">
      <label for="colorAuto" class="control-label col-md-4">Color</label>
        <div class="col-md-5">
-     <input class="form-control" onfocus="return datosCorrectos()" id="colorAuto" type="text" disabled=""  value="<?php echo $Consecutivo->colorAuto;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="colorAuto" type="text" maxlength="15" disabled=""  value="<?php echo $Consecutivo->colorAuto;?>">
        </div>
   </div>
 
   <div class="form-group" id="observacion">
   <label for="obsAuto" class="control-label col-md-4">Observaciones</label>
      <div class="col-md-5">
-     <textarea onfocus="return datosCorrectos()" id="obsAuto" rows="8" cols="40"  maxlength="100" placeholder="Escriba la observación del automóvil" disabled=""><?php echo $Consecutivo->observAuto;?></textarea>
+     <textarea onfocus="return datosCorrectos()" id="obsAuto" rows="8" cols="40" maxlength="100" placeholder="Escriba la observación del automóvil" disabled=""><?php echo $Consecutivo->observAuto;?></textarea>
        </div>
   </div>
 

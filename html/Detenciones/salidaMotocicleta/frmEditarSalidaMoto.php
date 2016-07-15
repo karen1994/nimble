@@ -54,56 +54,56 @@ if($query->num_rows >0){
   <div class="form-group">
      <label for="bolSalMoto" class="control-label col-md-4">Número de boleta</label>
        <div class="col-md-5">
-     <input class="form-control" id="bolSalMoto" type="text" maxlength="15" placeholder="" disabled="" value="<?php echo $Consecutivo->numBoletaDetencion;?>">
+     <input class="form-control" id="bolSalMoto" type="text" placeholder="" disabled="" value="<?php echo $Consecutivo->numBoletaDetencion;?>">
        </div>
   </div>
 
   <div class="form-group">
-   <label for="placaSalMoto" class="control-label col-md-4">Número de placa</label>
+   <label for="identMoto" class="control-label col-md-4">Placa, motor, marco u otro</label>
      <div class="col-md-5">
-   <input class="form-control" id="placaSalMoto" type="text" maxlength="12" disabled="" value="<?php echo $Consecutivo->numPlacaMoto;?>">
+   <input class="form-control" id="identMoto" type="text" disabled="" value="<?php echo $Consecutivo->identMoto;?>">
      </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="autEnt">
      <label for="autSalMoto" class="control-label col-md-4">Autoridad que entrega</label>
        <div class="col-md-5">
-     <input class="form-control" id="autSalMoto" type="text" maxlength="50" disabled="" placeholder="" value="<?php echo $Consecutivo->autoridadEntrega;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="autSalMoto" type="text" maxlength="50" disabled="" placeholder="" value="<?php echo $Consecutivo->autoridadEntrega;?>">
        </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="ofiEnt">
     <label for="oficialSalMoto" class="control-label col-md-4">Oficial que entrega</label>
       <div class="col-md-5">
-    <input class="form-control" id="oficialSalMoto" type="text" maxlength="5" disabled="" placeholder="" value="<?php echo $Consecutivo->codOficialEntrega;?>">
+    <input class="form-control" onfocus="return datosCorrectos()" id="oficialSalMoto" type="text" maxlength="5" disabled="" placeholder="" value="<?php echo $Consecutivo->codOficialEntrega;?>">
       </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="fecEntr">
      <label for="fecSalMoto" class="control-label col-md-4">Fecha de entrega</label>
        <div class="col-md-5">
-     <input class="form-control" id="fecSalMoto" type="date" disabled="" value="<?php echo $Consecutivo->fecEntregaVehiculo;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="fecSalMoto" type="date" disabled="" value="<?php echo $Consecutivo->fecEntregaVehiculo;?>">
        </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="oficio">
      <label for="oficioSalMoto" class="control-label col-md-4">Número de oficio</label>
        <div class="col-md-5">
-     <input class="form-control" id="oficioSalMoto" type="text" maxlength="18" disabled="" placeholder="" value="<?php echo $Consecutivo->numOficioSalida;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="oficioSalMoto" type="text" maxlength="18" disabled="" placeholder="" value="<?php echo $Consecutivo->numOficioSalida;?>">
        </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="tomo">
      <label for="tomoSalMoto" class="control-label col-md-4">Número de tomo</label>
        <div class="col-md-5">
-     <input class="form-control" id="tomoSalMoto" type="text" maxlength="4" disabled="" placeholder="" value="<?php echo $Consecutivo->tomSalDetencion;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="tomoSalMoto" type="text" maxlength="4" disabled="" placeholder="" value="<?php echo $Consecutivo->tomSalDetencion;?>">
        </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="folio">
      <label for="folioSalMoto" class="control-label col-md-4">Número de folio</label>
        <div class="col-md-5">
-     <input class="form-control" id="folioSalMoto" type="text" maxlength="4" disabled="" placeholder="" value="<?php echo $Consecutivo->folSalDetencion;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="folioSalMoto" type="text" maxlength="4" disabled="" placeholder="" value="<?php echo $Consecutivo->folSalDetencion;?>">
        </div>
   </div>
 

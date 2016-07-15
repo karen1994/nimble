@@ -13,7 +13,7 @@ $db= new Conexion();
 
 
 //************************************
-$query= mysqli_query($db," CALL sp_Editar_SalidaDetencion_Automovil('$autSalMoto',
+$query= mysqli_query($db," CALL sp_Editar_Salida_Detencion('$autSalMoto',
 '$oficialSalMoto', '$fecSalMoto','$oficioSalMoto', '$tomoSalMoto', '$folioSalMoto',
 '$numConsecutivo')");
 

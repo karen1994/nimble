@@ -44,37 +44,37 @@ if($query->num_rows >0){
 
 
        <div class="form-group">
-        <label for="numPlaca" class="control-label col-md-4">Número de placa</label>
+        <label for="identMoto" class="control-label col-md-4">Placa, motor, marco u otro</label>
           <div class="col-md-5">
-        <input class="form-control" id="placaSalMatricula" type="text" maxlength="12" disabled="" value="<?php echo $Consecutivo->numPlacaMoto;?>">
+        <input class="form-control" id="identMoto" type="text" maxlength="25" disabled="" value="<?php echo $Consecutivo->identMoto;?>">
           </div>
        </div>
 
-        <div class="form-group">
-          <label for="cedPersona" class="control-label col-md-4">Cédula</label>
+        <div class="form-group" id="identPe">
+          <label for="cedPersona" class="control-label col-md-4">Identificación</label>
           <div class="col-md-5">
-          <input class="form-control" id="cedPersona" type="text" placeholder="" value="" maxlength="20">
+          <input class="form-control" onfocus="return datosCorrectos()" id="cedPersona" type="text" placeholder="" value="" maxlength="20">
           </div>
         </div>
 
-   <div class="form-group ">
+   <div class="form-group" id="nomPe">
         <label for="nomPersona" class="control-label col-md-4">Nombre</label>
         <div class="col-md-5">
-        <input class="form-control" id="nomPersona" type="text" placeholder="" value="" maxlength="50">
+        <input class="form-control" onfocus="return datosCorrectos()" id="nomPersona" type="text" placeholder="" value="" maxlength="50">
         </div>
    </div>
 
-   <div class="form-group">
+   <div class="form-group" id="ape1Pe">
         <label for="ape1Persona" class="control-label col-md-4">Primer Apellido</label>
         <div class="col-md-5">
-        <input class="form-control" id="ape1Persona" type="text" placeholder="" value="" maxlength="50">
+        <input class="form-control" onfocus="return datosCorrectos()" id="ape1Persona" type="text" placeholder="" value="" maxlength="50">
         </div>
    </div>
 
-   <div class="form-group">
+   <div class="form-group" id="ape2Pe">
         <label for="ape2Persona" class="control-label col-md-4">Segundo Apellido</label>
         <div class="col-md-5">
-        <input class="form-control" id="ape2Persona" type="text" placeholder="" value="" maxlength="50">
+        <input class="form-control" onfocus="return datosCorrectos()" id="ape2Persona" type="text" placeholder="" value="" maxlength="50">
         </div>
   </div>
 

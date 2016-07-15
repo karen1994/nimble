@@ -3,20 +3,38 @@ function editarPersonaSalMoto() {
 
 // Parametros capturados del formulario
 
-  numConsecutivo= __('numConsecutivo').value;
-  cedPersona= __('cedPersona').value;
-  nomPersona= __('nomPersona').value;
-  ape1= __('ape1').value;
-  ape2= __('ape2').value;
+  numConsecutivo= __('numConsecutivo');
+  cedPersona= __('cedPersona');
+  nomPersona= __('nomPersona');
+  ape1= __('ape1');
+  ape2= __('ape2');
 
 
   //************** Se abre la conexion, si todo esta bien
-      form ='numConsecutivo=' + numConsecutivo +
-      '&cedPersona=' + cedPersona +
-      '&nomPersona=' + nomPersona +
-      '&ape1=' + ape1 +
-      '&ape2=' + ape2;
+      form ='numConsecutivo=' + numConsecutivo.value +
+      '&cedPersona=' + cedPersona.value +
+      '&nomPersona=' + nomPersona.value +
+      '&ape1=' + ape1.value +
+      '&ape2=' + ape2.value;
 
+      if(cedPersona.value == ""){
+              alert("El campo identificación es requerido");
+              cedPersona.focus();
+              $("#identPe").addClass('has-error');
+           }else if (nomPersona.value == ""){
+             alert("El campo nombre es requerido");
+            nomPersona.focus();
+              $("#nomPe").addClass('has-error');
+       }else if (ape1.value == ""){
+         alert("El campo primer apellido es requerido");
+        ape1.focus();
+          $("#ape1Pe").addClass('has-error');
+    }else if (ape2.value == ""){
+     alert("El campo segundo apellido es requerido");
+    ape2.focus();
+      $("#ape2Pe").addClass('has-error');
+    }
+      else{
 
   connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); //Función que permite que se visualice en todos los  navegadores
   connect.onreadystatechange = function() {
@@ -51,8 +69,29 @@ function editarPersonaSalMoto() {
   connect.open('POST','ajax.php?mode=editPeSalMoto',true); //Abre una conexión con ajax
   connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); //Mantiene los datos encriptados.
   connect.send(form); //Envia los datos a ajax
+}
+}
+
+function datosCorrectos(){
+     if (cedPersona.value != ""){
+           $("#identPe").removeClass('has-error');
+            $("#identPe").addClass('has-success');
+     }
+     if (nomPersona.value != ""){
+             $("#nomPe").removeClass('has-error');
+              $("#nomPe").addClass('has-success');
+     }
+     if (ape1.value != ""){
+             $("#ape1Pe").removeClass('has-error');
+              $("#ape1Pe").addClass('has-success');
+     }
+     if (ape2.value != ""){
+             $("#ape2Pe").removeClass('has-error');
+              $("#ape2Pe").addClass('has-success');
+     }
 
 }
+
 
 function mostrar(){
 

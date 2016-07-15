@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Nimble';
+    src:    url('Nimble.eot?6wfnx3');
+    src:    url('Nimble.eot?6wfnx3#iefix') format('embedded-opentype'),
+        url('Nimble.ttf?6wfnx3') format('truetype'),
+        url('Nimble.woff?6wfnx3') format('woff'),
+        url('Nimble.svg?6wfnx3#Nimble') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'Nimble' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-open_in_new:before {
+    content: "\e89e";
+}
+.icon-enter:before {
+    content: "\e900";
+}
+.icon-automobile:before {
+    content: "\f1b9";
+}
+.icon-car:before {
+    content: "\f1b9";
+}
+.icon-bicycle:before {
+    content: "\f206";
+}
+.icon-motorcycle:before {
+    content: "\f21c";
+}

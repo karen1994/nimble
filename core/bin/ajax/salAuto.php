@@ -18,7 +18,7 @@ $db= new Conexion();
  $estado=0;
 
 //************************************
-$query= mysqli_query($db," CALL sp_SalidaDetencion_Automovil('$cedPersona','$nomPersona','$ape1Persona', '$ape2Persona',
+$query= mysqli_query($db," CALL sp_Salida_Detencion_Automovil('$cedPersona','$nomPersona','$ape1Persona', '$ape2Persona',
 '$autoridadSalAuto','$oficEntSalAuto', '$fecSalAuto', '$oficioSalAuto', '$tomoSalAuto',
  '$folioSalAuto', '$identAuto', '$estado', '$numConsecutivo', '$numConsecutivoDet')");
 

@@ -12,7 +12,7 @@ $ape2= $_POST['ape2'];
 
 
 //************************************
-$query= mysqli_query($db," CALL sp_editarPeMatricula('$numConsecutivo','$cedPersona',
+$query= mysqli_query($db," CALL sp_editar_Persona('$numConsecutivo','$cedPersona',
 '$nomPersona','$ape1','$ape2')");
 
 $resultado= mysqli_fetch_assoc($query);

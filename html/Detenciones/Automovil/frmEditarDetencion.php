@@ -68,7 +68,7 @@ if($query->num_rows >0){
    <div class="form-group" id="boleta">
         <label for="numBoletaMatricula" class="control-label col-md-4">Número de boleta</label>
           <div class="col-md-5">
-        <input class="form-control" onfocus="return datosCorrectos()" id="numBoletaMatricula" type="text" maxlength="15"    value="<?php echo $Consecutivo->numBoletaDetencion;?>">
+        <input class="form-control" onfocus="return datosCorrectos()" id="numBoletaMatricula" type="text" maxlength="12" value="<?php echo $Consecutivo->numBoletaDetencion;?>">
           </div>
   </div>
 
@@ -82,7 +82,7 @@ if($query->num_rows >0){
   <div class="form-group" id="IdAuto">
        <label for="identAuto" class="control-label col-md-4">Placa, vin, motor u otro</label>
          <div class="col-md-5">
-       <input class="form-control" onfocus="return datosCorrectos()" id="identAuto" type="text" maxlength="25"  value="<?php echo $Consecutivo->identAuto;?>">
+       <input class="form-control" onfocus="return datosCorrectos()" id="identAuto" type="text" maxlength="25" value="<?php echo $Consecutivo->identAuto;?>">
          </div>
   </div>
 
@@ -96,21 +96,21 @@ if($query->num_rows >0){
   <div class="form-group" id="folio">
      <label for="folEntMatricula" class="control-label col-md-4">Folio</label>
        <div class="col-md-5">
-     <input class="form-control" onfocus="return datosCorrectos()" id="folEntMatricula" type="text" maxlength="4"   value="<?php echo $Consecutivo->FolioDetenciones;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="folEntMatricula" type="text" maxlength="4" value="<?php echo $Consecutivo->FolioDetenciones;?>">
        </div>
   </div>
 
   <div class="form-group" id="oDetiene">
       <label for="ofiDetMatricula" class="control-label col-md-4">Código del oficial que detiene</label>
         <div class="col-md-5">
-      <input class="form-control" onfocus="return datosCorrectos()" id="ofiDetMatricula" type="text" maxlength="5"  value="<?php echo $Consecutivo->codOficialDetiene;?>">
+      <input class="form-control" onfocus="return datosCorrectos()" id="ofiDetMatricula" type="text" maxlength="5" value="<?php echo $Consecutivo->codOficialDetiene;?>">
         </div>
   </div>
 
   <div class="form-group" id="oRecibe">
      <label for="ofiRecMatricula" class="control-label col-md-4">Código del oficial que recibe</label>
        <div class="col-md-5">
-     <input class="form-control" onfocus="return datosCorrectos()" id="ofiRecMatricula" type="text" maxlength="5"  value="<?php echo $Consecutivo->codOficialRecibe;?>">
+     <input class="form-control" onfocus="return datosCorrectos()" id="ofiRecMatricula" type="text" maxlength="5" value="<?php echo $Consecutivo->codOficialRecibe;?>">
        </div>
   </div>
 
