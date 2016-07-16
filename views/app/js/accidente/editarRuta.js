@@ -2,18 +2,31 @@
 function editarRuta () {
     var  form , numBoleta, rutAccidente, km, senas, velocidad;
   
-  numBoleta = __('numBoleta').value;
-  rutAccidente = __('rutAccidente').value;
-  km =            __('km').value;
-  senas =         __('senas').value;
-  velocidad =      __('velocidad').value;
+  numBoleta = __('numBoleta');
+  rutAccidente = __('rutAccidente');
+  km =            __('km');
+  senas =         __('senas');
+  velocidad =      __('velocidad');
     
-     alert(numBoleta+ rutAccidente + km + senas + velocidad);
-    form = 'rutAccidente=' + rutAccidente +
-      '&km=' + km +
-      '&senas=' + senas +
-      '&velocidad=' + velocidad +
-      '&numBoleta=' + numBoleta;
+    
+	if( rutAccidente.value === ""){
+	  $("#ruta").addClass('has-error');
+		//el.style.display = (el.style.display == 'none') ? 'block' : 'none';
+		 rutAccidente.focus();
+	}else if(km.value === ""){
+		
+	} else if(senas.value === ""){
+		
+	} else if(velocidad.value === ""){
+		
+	}
+	
+	
+    form = 'rutAccidente=' + rutAccidente.value +
+      '&km=' + km.value +
+      '&senas=' + senas.value +
+      '&velocidad=' + velocidad.value +
+      '&numBoleta=' + numBoleta.value;
     
     connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); //Función que permite que se visualice en todos los  navegadores
   connect.onreadystatechange = function() {
@@ -57,9 +70,6 @@ function editarRuta () {
 }  
 
 
-
-
-
 function validarFRM1 () {
     
     if(numBoleta.disabled){
@@ -87,4 +97,5 @@ window.onload= function () {
     btnGuardar.addEventListener("click", editarRuta);
     // btnCancelar.addEventListener("click", cancelar);
   //select.addEventListener("onchange", combo);
+	
   };

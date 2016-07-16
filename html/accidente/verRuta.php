@@ -59,7 +59,7 @@ while ($r=$query->fetch_object()){
         </div>
 </div>
     
-    <div class="form-group">
+    <div class="form-group" id="ruta">
       <label for="ruta" class="control-label col-md-4">Ruta del accidente</label>
         <div class="col-md-5">
       <input class="form-control" id="rutAccidente" type="text" disabled="true" value=<?php echo $accidente->numRuta ?> maxlength="3" placeholder="">
