@@ -14,7 +14,7 @@ INNER JOIN `motocicleta` ON `motocicleta`.`idTipoVehiculo` = `detenciones`.`idTi
 <!-- Campos de la tabla -->
 <thead>
 	<th>Boleta</th>
-	<th>Placa</th>
+	<th>Placa, motor, marco u otro</th>
 	<th>Autoridad que entrega</th>
   <th>Oficial que entrega</th>
   <th>Fecha de entrega</th>
@@ -29,7 +29,7 @@ INNER JOIN `motocicleta` ON `motocicleta`.`idTipoVehiculo` = `detenciones`.`idTi
 <?php while ($r=$sql->fetch_array()):?>
 <tr>
 	<td><?php echo $r["numBoletaDetencion"]; ?></td>
-	<td><?php echo $r["numPlacaMoto"]; ?></td>
+	<td><?php echo $r["identMoto"]; ?></td>
   <td><?php echo $r["autoridadEntrega"]; ?></td>
 	<td><?php echo $r["codOficialEntrega"]; ?></td>
   <td><?php echo $r["fecEntregaVehiculo"]; ?></td>

@@ -56,56 +56,56 @@ if($query->num_rows >0){
   <div class="form-group">
      <label for="bolSalMoto" class="control-label col-md-4">Número de boleta</label>
        <div class="col-md-5">
-     <input class="form-control" id="bolSalMoto" type="text" maxlength="15" placeholder="" disabled="" value="<?php echo $Consecutivo->numBoletaDetencion;?>">
+     <input class="form-control" id="bolSalMoto" type="text" maxlength="12" placeholder="" disabled="" value="<?php echo $Consecutivo->numBoletaDetencion;?>">
        </div>
   </div>
 
-  <div class="form-group">
-   <label for="placaSalMoto" class="control-label col-md-4">Placa, motor, marco u otro</label>
+  <div class="form-group" id="IdMoto">
+   <label for="identMoto" class="control-label col-md-4">Placa, motor, marco u otro</label>
      <div class="col-md-5">
-   <input class="form-control" id="placaSalMoto" type="text" maxlength="12" disabled="" value="<?php echo $Consecutivo->numPlacaMoto;?>">
+   <input class="form-control" onfocus="return datosCorrectos()" id="identMoto" type="text" maxlength="25" disabled="" value="<?php echo $Consecutivo->identMoto;?>">
      </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="autEnt">
      <label for="autoridadSalMoto" class="control-label col-md-4">Autoridad que entrega</label>
        <div class="col-md-5">
-     <input class="form-control" id="autoridadSalMoto" type="text" maxlength="50" placeholder=""  value="">
+     <input class="form-control" onfocus="return datosCorrectos()" id="autoridadSalMoto" type="text" maxlength="50" placeholder=""  value="">
        </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="ofiEnt">
      <label for="oficEntSalMoto" class="control-label col-md-4">Código del oficial que entrega</label>
        <div class="col-md-5">
-     <input class="form-control" id="oficEntSalMoto" type="text" maxlength="5" placeholder=""  value="">
+     <input class="form-control" onfocus="return datosCorrectos()" id="oficEntSalMoto" type="text" maxlength="5" placeholder=""  value="">
        </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="fecEntr">
      <label for="fecSalMoto" class="control-label col-md-4">Fecha de entrega</label>
        <div class="col-md-5">
-     <input class="form-control" id="fecSalMoto" type="date" value="">
+     <input class="form-control" onfocus="return datosCorrectos()" id="fecSalMoto" type="date" value="">
        </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="oficio">
      <label for="oficioSalMoto" class="control-label col-md-4">Número de oficio</label>
        <div class="col-md-5">
-     <input class="form-control" id="oficioSalMoto" type="text" maxlength="18" placeholder=""  value="">
+     <input class="form-control" onfocus="return datosCorrectos()" id="oficioSalMoto" type="text" maxlength="18" placeholder=""  value="">
        </div>
   </div>
 
-<div class="form-group">
+<div class="form-group" id="tomo">
      <label for="tomoSalMoto" class="control-label col-md-4">Número de tomo</label>
      <div class="col-md-5">
-     <input class="form-control" id="tomoSalMoto" type="text" maxlength="4" placeholder="" value="">
+     <input class="form-control" onfocus="return datosCorrectos()" id="tomoSalMoto" type="text" maxlength="4" placeholder="" value="">
      </div>
 </div>
 
-<div class="form-group">
+<div class="form-group" id="folio">
      <label for="folioSalMoto" class="control-label col-md-4">Número de folio</label>
      <div class="col-md-5">
-     <input class="form-control" id="folioSalMoto" type="text" maxlength="4" placeholder="" value="">
+     <input class="form-control" onfocus="return datosCorrectos()" id="folioSalMoto" type="text" maxlength="4" placeholder="" value="">
      </div>
 </div>
 

@@ -45,7 +45,7 @@ function salidaAuto() {
       if(connect.responseText == 1) {
 
         result = '<div class="alert alert-dismissible alert-success">';
-        result += '<h4> Registro completado!</h4>';
+        result += '<h4> Registro completado !</h4>';
         result += '</div>';
         __('_AJAX_SalAuto_').innerHTML = result;
         location.reload();
@@ -58,7 +58,7 @@ function salidaAuto() {
         result = '<div class="alert alert-dismissible alert-warning">';
         result += '<button type="button" class="close" data-dismiss="alert">x</button>';
         result += '<h4>Procesando...</h4>';
-        result += '<p><strong>Registrando Datos...</strong></p>';
+        result += '<p><strong>Registrando datos...</strong></p>';
         result += '</div>';
 
       __('_AJAX_SalAuto_').innerHTML = result;

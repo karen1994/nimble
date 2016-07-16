@@ -54,7 +54,7 @@ if($query->num_rows >0){
         <div class="form-group">
              <label for="numBoletaMatricula" class="control-label col-md-4">Número de boleta</label>
                <div class="col-md-5">
-             <input class="form-control" id="numBoletaMatricula" type="text" maxlength="15" disabled=""   value="<?php echo $Consecutivo->numBoletaDetencion;?>">
+             <input class="form-control" id="numBoletaMatricula" type="text" disabled=""   value="<?php echo $Consecutivo->numBoletaDetencion;?>">
                </div>
         </div>
 

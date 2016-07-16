@@ -11,7 +11,7 @@ $tomEntDetencion= $_POST['tomEntDetencion'];
 $folEntDetencion= $_POST['folEntDetencion'];
 $ofiDetMoto= $_POST['ofiDetMoto'];
 $ofiRecMoto= $_POST['ofiRecMoto'];
-$estado=1;
+$estado= $_POST['estado'];;
 
 
 

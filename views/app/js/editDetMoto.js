@@ -1,6 +1,6 @@
 //Función donde se guardarn los datos validados por las funciones anteriores
 function editarDetencionMoto() {
-  var connect, form, response, result, numConsecutivo, numConsecutivoM, numBoletaDetencion,
+  var connect, form, response, result, numConsecutivo, numConsecutivoM, estado, numBoletaDetencion,
   fecBoletaDetencion, identMoto,  tomEntDetencion, folEntDetencion, ofiDetMoto, ofiRecMoto;
 // Parametros capturados del formulario
   numConsecutivo= __('numConsecutivo');
@@ -16,6 +16,7 @@ function editarDetencionMoto() {
   //Se abre la conexion, si todo esta bien
       form ='numConsecutivo=' + numConsecutivo.value +
       '&numConsecutivoM=' + numConsecutivoM.value +
+      '&estado=' + estado.value +
       '&numBoletaDetencion=' + numBoletaDetencion.value +
       '&fecBoletaDetencion=' +  fecBoletaDetencion.value +
       '&identMoto=' + identMoto.value +

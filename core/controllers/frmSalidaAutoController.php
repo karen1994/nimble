@@ -1,3 +1,3 @@
 <?php
-include('html\Detenciones\Salida\frmSalidaAuto.html');
+include('html\Detenciones\salidaAutomovil\frmSalidaAuto.html');
  ?>
