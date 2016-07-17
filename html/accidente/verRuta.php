@@ -66,13 +66,13 @@ while ($r=$query->fetch_object()){
         </div>
 </div>
 
-<div class="form-group">
+<div class="form-group" id="kilmetro">
      <label for="km" class="control-label col-md-4">Kilómetro</label>
        <div class="col-md-5">
      <input class="form-control" id="km" type="text" disabled="true" value=<?php echo $accidente->km ?> maxlength = "3" placeholder="">
        </div>
 </div>
-<div class="form-group">
+<div class="form-group" id="vel">
      <label for="Vkm" class="control-label col-md-4">Velocidad de la carretera</label>
        <div class="col-md-5">
      <input class="form-control" id="velocidad" type="text"  disabled="true" value=<?php echo $accidente->velocidad ?> maxlength="3" placeholder="">
@@ -83,7 +83,7 @@ while ($r=$query->fetch_object()){
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<div class="form-group">
+<div class="form-group" id="sen">
   <label for="senas" class="control-label col-md-4">Otras señas</label>
      <div class="col-md-5">
      <textarea name="senas" id="senas" rows="8"  cols="40"  disabled="true" placeholder="Escribe otras señas para ubicar el accidente"><?php echo $accidente->senas ?></textarea>

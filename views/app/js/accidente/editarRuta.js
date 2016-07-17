@@ -14,12 +14,15 @@ function editarRuta () {
 		//el.style.display = (el.style.display == 'none') ? 'block' : 'none';
 		 rutAccidente.focus();
 	}else if(km.value === ""){
-		
+		 $("#kilmetro").addClass('has-error');
+		km.focus();
 	} else if(senas.value === ""){
-		
+		 $("#sen").addClass('has-error');
+		senas.focus();
 	} else if(velocidad.value === ""){
-		
-	}
+		 $("#vel").addClass('has-error');
+		velocidad.focus();
+	} else {
 	
 	
     form = 'rutAccidente=' + rutAccidente.value +
@@ -67,6 +70,8 @@ function editarRuta () {
   connect.open('POST','ajax.php?mode=editarRuta',true); //Abre una conexión con ajax
   connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded'); //Mantiene los datos encriptados.
   connect.send(form);//Envia los datos a ajax
+		
+	}
 }  
 
 
